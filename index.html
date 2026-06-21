@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
 <title>Morning + Evening</title>
 
-<!-- PWA setup -->
 <link rel="manifest" href="manifest.json" />
 <meta name="theme-color" content="#FDF8FF" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -17,25 +16,32 @@
   html, body { margin:0; padding:0; background:#FDF8FF; -webkit-tap-highlight-color: transparent; }
   body { overscroll-behavior: none; }
   #root { min-height: 100vh; }
+  #fallback { font-family: sans-serif; padding: 24px; color: #2D1B4E; }
 </style>
 </head>
 <body>
-<div id="root"></div>
+<div id="root">
+  <div id="fallback">Loading your routine...</div>
+</div>
 
-<!-- React + ReactDOM (production builds) -->
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<!-- Babel standalone so the browser can run JSX directly, no build step -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<script type="text/babel" data-presets="react" src="app.jsx"></script>
+<script src="app.compiled.js"></script>
 
-<script type="text/babel" data-presets="react">
-  const root = ReactDOM.createRoot(document.getElementById("root"));
-  root.render(React.createElement(Gate));
+<script>
+  try {
+    var root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(React.createElement(Gate));
+  } catch (e) {
+    document.getElementById("root").innerHTML =
+      '<div style="font-family:sans-serif;padding:24px;color:#7F1D1D;">' +
+      '<b>Something went wrong loading the app.</b><br><br>' +
+      'Error: ' + (e && e.message ? e.message : e) +
+      '</div>';
+  }
 </script>
 
-<!-- Register service worker for offline + installability -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
