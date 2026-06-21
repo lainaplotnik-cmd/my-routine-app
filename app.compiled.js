@@ -1,4 +1,3 @@
-import { jsxDEV as _jsxDEV, Fragment as _Fragment } from "react/jsx-dev-runtime";
 const {
   useState,
   useEffect,
@@ -29,7 +28,7 @@ function LockScreen({
       setTimeout(() => setError(false), 600);
     }
   }
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
       background: "#FDF8FF",
@@ -39,83 +38,75 @@ function LockScreen({
       justifyContent: "center",
       padding: 24,
       fontFamily: "'DM Mono', monospace"
-    },
-    children: [/*#__PURE__*/_jsxDEV("style", {
-      children: `
+    }
+  }, /*#__PURE__*/React.createElement("style", null, `
         @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap');
         @keyframes shakeLock { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
         input:focus { outline: none; }
-      `
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        fontSize: 40,
-        marginBottom: 16
-      },
-      children: "🔒"
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        fontFamily: "'Bebas Neue', sans-serif",
-        fontSize: 32,
-        color: "#2D1B4E",
-        marginBottom: 8,
-        textAlign: "center"
-      },
-      children: "YOUR SPACE"
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        fontSize: 12,
-        color: "rgba(100,60,140,0.5)",
-        marginBottom: 28,
-        textAlign: "center"
-      },
-      children: "Enter your passphrase to continue"
-    }, void 0, false), /*#__PURE__*/_jsxDEV("input", {
-      ref: inputRef,
-      type: "password",
-      value: input,
-      onChange: e => setInput(e.target.value),
-      onKeyDown: e => {
-        if (e.key === "Enter") tryUnlock();
-      },
-      placeholder: "Passphrase",
-      style: {
-        width: "100%",
-        maxWidth: 320,
-        background: "rgba(120,80,160,0.04)",
-        border: `1px solid ${error ? "#F87171" : "rgba(120,80,160,0.15)"}`,
-        borderRadius: 10,
-        padding: "14px 16px",
-        color: "#2D1B4E",
-        fontSize: 15,
-        fontFamily: "'DM Mono', monospace",
-        textAlign: "center",
-        marginBottom: 16,
-        animation: error ? "shakeLock 0.4s ease" : "none"
-      }
-    }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-      onClick: tryUnlock,
-      style: {
-        background: "#C084FC",
-        color: "#fff",
-        border: "none",
-        borderRadius: 10,
-        padding: "12px 32px",
-        fontFamily: "'DM Mono', monospace",
-        fontSize: 13,
-        fontWeight: 700,
-        letterSpacing: 1,
-        cursor: "pointer"
-      },
-      children: "UNLOCK"
-    }, void 0, false), error && /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        color: "#F87171",
-        fontSize: 12,
-        marginTop: 12
-      },
-      children: "Not quite — try again"
-    }, void 0, false)]
-  }, void 0, true);
+      `), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 40,
+      marginBottom: 16
+    }
+  }, "🔒"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue', sans-serif",
+      fontSize: 32,
+      color: "#2D1B4E",
+      marginBottom: 8,
+      textAlign: "center"
+    }
+  }, "YOUR SPACE"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "rgba(100,60,140,0.5)",
+      marginBottom: 28,
+      textAlign: "center"
+    }
+  }, "Enter your passphrase to continue"), /*#__PURE__*/React.createElement("input", {
+    ref: inputRef,
+    type: "password",
+    value: input,
+    onChange: e => setInput(e.target.value),
+    onKeyDown: e => {
+      if (e.key === "Enter") tryUnlock();
+    },
+    placeholder: "Passphrase",
+    style: {
+      width: "100%",
+      maxWidth: 320,
+      background: "rgba(120,80,160,0.04)",
+      border: `1px solid ${error ? "#F87171" : "rgba(120,80,160,0.15)"}`,
+      borderRadius: 10,
+      padding: "14px 16px",
+      color: "#2D1B4E",
+      fontSize: 15,
+      fontFamily: "'DM Mono', monospace",
+      textAlign: "center",
+      marginBottom: 16,
+      animation: error ? "shakeLock 0.4s ease" : "none"
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: tryUnlock,
+    style: {
+      background: "#C084FC",
+      color: "#fff",
+      border: "none",
+      borderRadius: 10,
+      padding: "12px 32px",
+      fontFamily: "'DM Mono', monospace",
+      fontSize: 13,
+      fontWeight: 700,
+      letterSpacing: 1,
+      cursor: "pointer"
+    }
+  }, "UNLOCK"), error && /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#F87171",
+      fontSize: 12,
+      marginTop: 12
+    }
+  }, "Not quite — try again"));
 }
 function Gate() {
   const [unlocked, setUnlocked] = useState(() => {
@@ -125,10 +116,10 @@ function Gate() {
       return false;
     }
   });
-  if (!unlocked) return /*#__PURE__*/_jsxDEV(LockScreen, {
+  if (!unlocked) return /*#__PURE__*/React.createElement(LockScreen, {
     onUnlock: () => setUnlocked(true)
-  }, void 0, false);
-  return /*#__PURE__*/_jsxDEV(App, {}, void 0, false);
+  });
+  return /*#__PURE__*/React.createElement(App, null);
 }
 
 // ── PASSPHRASE LOCK END ──────────────────────────────────────
@@ -483,7 +474,7 @@ function Toast({
     const t = setTimeout(onDone, 1500);
     return () => clearTimeout(t);
   }, []);
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "fixed",
       top: 80,
@@ -498,9 +489,8 @@ function Toast({
       borderRadius: 8,
       animation: "toastIn 0.3s ease, toastOut 0.3s ease 1.2s forwards",
       pointerEvents: "none"
-    },
-    children: ["+", amount, " XP ⚡"]
-  }, void 0, true);
+    }
+  }, "+", amount, " XP ⚡");
 }
 function UnlockBanner({
   habit,
@@ -510,7 +500,7 @@ function UnlockBanner({
     const t = setTimeout(onDone, 3500);
     return () => clearTimeout(t);
   }, []);
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     onClick: onDone,
     style: {
       position: "fixed",
@@ -521,54 +511,47 @@ function UnlockBanner({
       alignItems: "center",
       justifyContent: "center",
       padding: 24
-    },
-    children: /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        textAlign: "center",
-        animation: "unlockPop 0.5s ease forwards"
-      },
-      children: [/*#__PURE__*/_jsxDEV("div", {
-        style: {
-          fontSize: 56,
-          marginBottom: 12
-        },
-        children: habit.emoji
-      }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          fontSize: 11,
-          color: "#C084FC",
-          letterSpacing: 3,
-          marginBottom: 8
-        },
-        children: "NEW HABIT UNLOCKED"
-      }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          fontFamily: "'Bebas Neue',sans-serif",
-          fontSize: 44,
-          color: "#2D1B4E",
-          lineHeight: 1,
-          marginBottom: 10
-        },
-        children: habit.label
-      }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          fontSize: 13,
-          color: "rgba(80,50,120,0.55)",
-          marginBottom: 16,
-          maxWidth: 280,
-          margin: "0 auto 16px"
-        },
-        children: habit.desc
-      }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          color: "#C084FC",
-          fontSize: 14,
-          fontFamily: "monospace"
-        },
-        children: ["+", habit.xp, " XP now available"]
-      }, void 0, true)]
-    }, void 0, true)
-  }, void 0, false);
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      animation: "unlockPop 0.5s ease forwards"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 56,
+      marginBottom: 12
+    }
+  }, habit.emoji), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#C084FC",
+      letterSpacing: 3,
+      marginBottom: 8
+    }
+  }, "NEW HABIT UNLOCKED"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 44,
+      color: "#2D1B4E",
+      lineHeight: 1,
+      marginBottom: 10
+    }
+  }, habit.label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: "rgba(80,50,120,0.55)",
+      marginBottom: 16,
+      maxWidth: 280,
+      margin: "0 auto 16px"
+    }
+  }, habit.desc), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#C084FC",
+      fontSize: 14,
+      fontFamily: "monospace"
+    }
+  }, "+", habit.xp, " XP now available")));
 }
 function TimerBlock({
   habit,
@@ -594,59 +577,54 @@ function TimerBlock({
     return () => clearInterval(ref.current);
   }, [running]);
   const pct = (habit.duration - rem) / habit.duration * 100;
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 8
-    },
-    children: [/*#__PURE__*/_jsxDEV("div", {
-      style: {
-        height: 3,
-        background: "rgba(120,80,160,0.08)",
-        borderRadius: 2,
-        overflow: "hidden",
-        marginBottom: 8
-      },
-      children: /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          height: "100%",
-          width: `${pct}%`,
-          background: done ? "#34D399" : "#C084FC",
-          borderRadius: 2,
-          transition: "width 1s linear"
-        }
-      }, void 0, false)
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        display: "flex",
-        gap: 8,
-        alignItems: "center"
-      },
-      children: [/*#__PURE__*/_jsxDEV("span", {
-        style: {
-          fontFamily: "monospace",
-          fontSize: 17,
-          color: done ? "#34D399" : "#C084FC",
-          minWidth: 52
-        },
-        children: done ? "DONE" : fmt(rem)
-      }, void 0, false), !done && /*#__PURE__*/_jsxDEV("button", {
-        onClick: () => setRunning(!running),
-        style: {
-          background: running ? "rgba(192,132,252,0.15)" : "#C084FC",
-          color: running ? "#C084FC" : "#FDFBFF",
-          border: running ? "1px solid #C084FC" : "none",
-          borderRadius: 4,
-          padding: "3px 12px",
-          fontSize: 11,
-          fontFamily: "monospace",
-          fontWeight: 700,
-          letterSpacing: 1,
-          cursor: "pointer"
-        },
-        children: running ? "PAUSE" : "START"
-      }, void 0, false)]
-    }, void 0, true)]
-  }, void 0, true);
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: 3,
+      background: "rgba(120,80,160,0.08)",
+      borderRadius: 2,
+      overflow: "hidden",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: "100%",
+      width: `${pct}%`,
+      background: done ? "#34D399" : "#C084FC",
+      borderRadius: 2,
+      transition: "width 1s linear"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "monospace",
+      fontSize: 17,
+      color: done ? "#34D399" : "#C084FC",
+      minWidth: 52
+    }
+  }, done ? "DONE" : fmt(rem)), !done && /*#__PURE__*/React.createElement("button", {
+    onClick: () => setRunning(!running),
+    style: {
+      background: running ? "rgba(192,132,252,0.15)" : "#C084FC",
+      color: running ? "#C084FC" : "#FDFBFF",
+      border: running ? "1px solid #C084FC" : "none",
+      borderRadius: 4,
+      padding: "3px 12px",
+      fontSize: 11,
+      fontFamily: "monospace",
+      fontWeight: 700,
+      letterSpacing: 1,
+      cursor: "pointer"
+    }
+  }, running ? "PAUSE" : "START")));
 }
 
 // ── TOP BAR ───────────────────────────────────────────────────
@@ -680,7 +658,7 @@ function TopBar({
     label: "🛒",
     sub: "SHOP"
   }];
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "sticky",
       top: 0,
@@ -688,108 +666,97 @@ function TopBar({
       background: "rgba(253,248,255,0.97)",
       borderBottom: "1px solid rgba(120,80,160,0.06)",
       padding: "10px 16px"
-    },
-    children: /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        maxWidth: 520,
-        margin: "0 auto"
-      },
-      children: [/*#__PURE__*/_jsxDEV("div", {
-        style: {
-          display: "flex",
-          alignItems: "center",
-          gap: 8,
-          marginBottom: 6
-        },
-        children: [/*#__PURE__*/_jsxDEV("span", {
-          style: {
-            fontSize: 10,
-            color: "#C084FC",
-            letterSpacing: 1
-          },
-          children: ["LVL ", level.level, " · ", level.title.toUpperCase()]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            flex: 1
-          }
-        }, void 0, false), streak > 0 && /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            fontSize: 11,
-            color: "#F59E0B"
-          },
-          children: ["🔥 ", streak]
-        }, void 0, true)]
-      }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          display: "flex",
-          alignItems: "center",
-          gap: 8,
-          marginBottom: 10
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            flex: 1,
-            height: 4,
-            background: "rgba(120,80,160,0.07)",
-            borderRadius: 2,
-            overflow: "hidden"
-          },
-          children: /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              height: "100%",
-              width: `${pct}%`,
-              background: "linear-gradient(90deg,#C084FC,#D8A0FF)",
-              borderRadius: 2,
-              transition: "width 0.6s ease"
-            }
-          }, void 0, false)
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            fontSize: 10,
-            color: "rgba(100,60,140,0.3)",
-            whiteSpace: "nowrap"
-          },
-          children: [totalXP, " XP"]
-        }, void 0, true)]
-      }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          display: "flex",
-          gap: 4
-        },
-        children: tabs.map(t => /*#__PURE__*/_jsxDEV("button", {
-          onClick: () => onSwitch(t.id),
-          className: "tab-btn",
-          style: {
-            flex: 1,
-            padding: "6px 2px",
-            borderRadius: 6,
-            border: "none",
-            cursor: "pointer",
-            background: active === t.id ? "#C084FC" : "rgba(120,80,160,0.05)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 1
-          },
-          children: [/*#__PURE__*/_jsxDEV("span", {
-            style: {
-              fontSize: 14
-            },
-            children: t.label
-          }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-            style: {
-              fontSize: 8,
-              fontFamily: "'DM Mono',monospace",
-              fontWeight: 500,
-              letterSpacing: 0.5,
-              color: active === t.id ? "#4A1D8C" : "rgba(100,60,140,0.3)"
-            },
-            children: t.sub
-          }, void 0, false)]
-        }, t.id, true))
-      }, void 0, false)]
-    }, void 0, true)
-  }, void 0, false);
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 520,
+      margin: "0 auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: "#C084FC",
+      letterSpacing: 1
+    }
+  }, "LVL ", level.level, " · ", level.title.toUpperCase()), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }), streak > 0 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: "#F59E0B"
+    }
+  }, "🔥 ", streak)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      height: 4,
+      background: "rgba(120,80,160,0.07)",
+      borderRadius: 2,
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: "100%",
+      width: `${pct}%`,
+      background: "linear-gradient(90deg,#C084FC,#D8A0FF)",
+      borderRadius: 2,
+      transition: "width 0.6s ease"
+    }
+  })), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: "rgba(100,60,140,0.3)",
+      whiteSpace: "nowrap"
+    }
+  }, totalXP, " XP")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4
+    }
+  }, tabs.map(t => /*#__PURE__*/React.createElement("button", {
+    key: t.id,
+    onClick: () => onSwitch(t.id),
+    className: "tab-btn",
+    style: {
+      flex: 1,
+      padding: "6px 2px",
+      borderRadius: 6,
+      border: "none",
+      cursor: "pointer",
+      background: active === t.id ? "#C084FC" : "rgba(120,80,160,0.05)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 1
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 14
+    }
+  }, t.label), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 8,
+      fontFamily: "'DM Mono',monospace",
+      fontWeight: 500,
+      letterSpacing: 0.5,
+      color: active === t.id ? "#4A1D8C" : "rgba(100,60,140,0.3)"
+    }
+  }, t.sub))))));
 }
 
 // ── MAIN ──────────────────────────────────────────────────────
@@ -1217,124 +1184,114 @@ function App() {
   if (phase === "unlock") {
     const step = UNLOCK_STEPS[uStep];
     const ready = uInput.trim().length >= step.minLength;
-    return /*#__PURE__*/_jsxDEV("div", {
+    return /*#__PURE__*/React.createElement("div", {
       style: {
         minHeight: "100vh",
         background: "#FDFBFF",
         fontFamily: "'DM Mono',monospace"
+      }
+    }, /*#__PURE__*/React.createElement("style", null, CSS), /*#__PURE__*/React.createElement(TopBar, {
+      totalXP: totalXP,
+      streak: streak,
+      active: "morning",
+      onSwitch: () => {}
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "calc(100vh - 110px)",
+        padding: 24
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: "100%",
+        maxWidth: 480,
+        animation: "fadeUp 0.5s ease forwards"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 6,
+        marginBottom: 36
+      }
+    }, UNLOCK_STEPS.map((_, i) => /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: {
+        height: 3,
+        flex: 1,
+        borderRadius: 2,
+        background: i <= uStep ? "#C084FC" : "rgba(120,80,160,0.08)",
+        transition: "background 0.3s"
+      }
+    }))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        color: "#C084FC",
+        fontSize: 10,
+        letterSpacing: 3,
+        marginBottom: 10
+      }
+    }, step.label, " · ", uStep + 1, "/", UNLOCK_STEPS.length), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontFamily: "'Bebas Neue',sans-serif",
+        fontSize: 34,
+        color: "#2D1B4E",
+        lineHeight: 1.1,
+        marginBottom: 26
+      }
+    }, step.prompt), /*#__PURE__*/React.createElement("textarea", {
+      ref: inputRef,
+      value: uInput,
+      onChange: e => setUInput(e.target.value),
+      onKeyDown: e => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          handleUnlock();
+        }
       },
-      children: [/*#__PURE__*/_jsxDEV("style", {
-        children: CSS
-      }, void 0, false), /*#__PURE__*/_jsxDEV(TopBar, {
-        totalXP: totalXP,
-        streak: streak,
-        active: "morning",
-        onSwitch: () => {}
-      }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          minHeight: "calc(100vh - 110px)",
-          padding: 24
-        },
-        children: /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            width: "100%",
-            maxWidth: 480,
-            animation: "fadeUp 0.5s ease forwards"
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 6,
-              marginBottom: 36
-            },
-            children: UNLOCK_STEPS.map((_, i) => /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                height: 3,
-                flex: 1,
-                borderRadius: 2,
-                background: i <= uStep ? "#C084FC" : "rgba(120,80,160,0.08)",
-                transition: "background 0.3s"
-              }
-            }, i, false))
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "#C084FC",
-              fontSize: 10,
-              letterSpacing: 3,
-              marginBottom: 10
-            },
-            children: [step.label, " · ", uStep + 1, "/", UNLOCK_STEPS.length]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontFamily: "'Bebas Neue',sans-serif",
-              fontSize: 34,
-              color: "#2D1B4E",
-              lineHeight: 1.1,
-              marginBottom: 26
-            },
-            children: step.prompt
-          }, void 0, false), /*#__PURE__*/_jsxDEV("textarea", {
-            ref: inputRef,
-            value: uInput,
-            onChange: e => setUInput(e.target.value),
-            onKeyDown: e => {
-              if (e.key === "Enter" && !e.shiftKey) {
-                e.preventDefault();
-                handleUnlock();
-              }
-            },
-            placeholder: step.placeholder,
-            rows: 4,
-            style: {
-              width: "100%",
-              background: "rgba(120,80,160,0.04)",
-              border: `1px solid ${shake ? "#F87171" : "rgba(120,80,160,0.09)"}`,
-              borderRadius: 8,
-              padding: 16,
-              color: "#2D1B4E",
-              fontSize: 14,
-              fontFamily: "'DM Mono',monospace",
-              lineHeight: 1.7,
-              animation: shake ? "shake 0.4s ease" : "none"
-            }
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginTop: 12
-            },
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 11,
-                color: "rgba(100,60,140,0.2)"
-              },
-              children: !ready ? `${step.minLength - uInput.length} more chars` : "↵ enter or tap continue"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-              onClick: handleUnlock,
-              style: {
-                background: ready ? "#C084FC" : "rgba(120,80,160,0.05)",
-                color: ready ? "#FDFBFF" : "rgba(100,60,140,0.2)",
-                border: "none",
-                borderRadius: 6,
-                padding: "10px 20px",
-                fontFamily: "'DM Mono',monospace",
-                fontSize: 12,
-                fontWeight: 500,
-                letterSpacing: 1,
-                cursor: "pointer",
-                transition: "all 0.2s"
-              },
-              children: uStep < UNLOCK_STEPS.length - 1 ? "NEXT →" : "START MORNING →"
-            }, void 0, false)]
-          }, void 0, true)]
-        }, void 0, true)
-      }, void 0, false)]
-    }, void 0, true);
+      placeholder: step.placeholder,
+      rows: 4,
+      style: {
+        width: "100%",
+        background: "rgba(120,80,160,0.04)",
+        border: `1px solid ${shake ? "#F87171" : "rgba(120,80,160,0.09)"}`,
+        borderRadius: 8,
+        padding: 16,
+        color: "#2D1B4E",
+        fontSize: 14,
+        fontFamily: "'DM Mono',monospace",
+        lineHeight: 1.7,
+        animation: shake ? "shake 0.4s ease" : "none"
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginTop: 12
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: "rgba(100,60,140,0.2)"
+      }
+    }, !ready ? `${step.minLength - uInput.length} more chars` : "↵ enter or tap continue"), /*#__PURE__*/React.createElement("button", {
+      onClick: handleUnlock,
+      style: {
+        background: ready ? "#C084FC" : "rgba(120,80,160,0.05)",
+        color: ready ? "#FDFBFF" : "rgba(100,60,140,0.2)",
+        border: "none",
+        borderRadius: 6,
+        padding: "10px 20px",
+        fontFamily: "'DM Mono',monospace",
+        fontSize: 12,
+        fontWeight: 500,
+        letterSpacing: 1,
+        cursor: "pointer",
+        transition: "all 0.2s"
+      }
+    }, uStep < UNLOCK_STEPS.length - 1 ? "NEXT →" : "START MORNING →")))));
   }
 
   // ── MAIN ──────────────────────────────────────────────────────
@@ -1356,2077 +1313,1860 @@ function App() {
     padding: 16,
     marginBottom: 20
   };
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
       background: "#FDFBFF",
       fontFamily: "'DM Mono',monospace",
       paddingBottom: 100
+    }
+  }, /*#__PURE__*/React.createElement("style", null, CSS), toasts.map(t => /*#__PURE__*/React.createElement(Toast, {
+    key: t.id,
+    amount: t.amount,
+    onDone: () => setToasts(p => p.filter(x => x.id !== t.id))
+  })), newUnlock && /*#__PURE__*/React.createElement(UnlockBanner, {
+    habit: newUnlock,
+    onDone: () => setNewUnlock(null)
+  }), showPuzzle && /*#__PURE__*/React.createElement("div", {
+    onClick: () => setShowPuzzle(false),
+    style: {
+      position: "fixed",
+      inset: 0,
+      zIndex: 200,
+      background: "rgba(80,50,120,0.7)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      animation: "unlockPop 0.5s ease"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 56,
+      marginBottom: 10
+    }
+  }, "🧩"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 38,
+      color: "#7C3AED"
+    }
+  }, "PUZZLES UNLOCKED"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: "rgba(80,50,120,0.5)",
+      marginTop: 8
+    }
+  }, "Evening routine complete. You earned it."))), stopFired && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "fixed",
+      bottom: 90,
+      left: 16,
+      right: 16,
+      zIndex: 150,
+      background: "#FCA5A5",
+      color: "#2D1B4E",
+      borderRadius: 10,
+      padding: "12px 16px",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13
+    }
+  }, "🛑 11:00 PM — PUT THE PUZZLE DOWN."), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setStopFired(false),
+    style: {
+      background: "rgba(100,60,140,0.2)",
+      border: "none",
+      color: "#2D1B4E",
+      borderRadius: 6,
+      padding: "4px 10px",
+      cursor: "pointer",
+      fontSize: 12
+    }
+  }, "ok")), showParalysis && /*#__PURE__*/React.createElement("div", {
+    onClick: () => setShowParalysis(false),
+    style: {
+      position: "fixed",
+      inset: 0,
+      zIndex: 250,
+      background: "rgba(80,50,120,0.65)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: e => e.stopPropagation(),
+    style: {
+      background: "#F5F0FF",
+      border: "1px solid rgba(120,80,160,0.1)",
+      borderRadius: 14,
+      padding: 28,
+      maxWidth: 360,
+      width: "100%",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 32,
+      marginBottom: 10
+    }
+  }, "🆘"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: "#C084FC",
+      letterSpacing: 3,
+      marginBottom: 12
+    }
+  }, "YOU'RE STUCK. THAT'S OK."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 24,
+      color: "#2D1B4E",
+      lineHeight: 1.3,
+      marginBottom: 16
+    }
+  }, paralysisStep), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "rgba(80,50,120,0.45)",
+      marginBottom: 20,
+      lineHeight: 1.6
+    }
+  }, "Don't think about the whole task. Just do this one thing."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setParalysisStep(PARALYSIS[Math.floor(Math.random() * PARALYSIS.length)]);
     },
-    children: [/*#__PURE__*/_jsxDEV("style", {
-      children: CSS
-    }, void 0, false), toasts.map(t => /*#__PURE__*/_jsxDEV(Toast, {
-      amount: t.amount,
-      onDone: () => setToasts(p => p.filter(x => x.id !== t.id))
-    }, t.id, false)), newUnlock && /*#__PURE__*/_jsxDEV(UnlockBanner, {
-      habit: newUnlock,
-      onDone: () => setNewUnlock(null)
-    }, void 0, false), showPuzzle && /*#__PURE__*/_jsxDEV("div", {
-      onClick: () => setShowPuzzle(false),
+    style: {
+      flex: 1,
+      background: "rgba(120,80,160,0.06)",
+      color: "rgba(80,50,120,0.7)",
+      border: "1px solid rgba(120,80,160,0.1)",
+      borderRadius: 8,
+      padding: "10px 0",
+      fontFamily: "'DM Mono',monospace",
+      fontSize: 12,
+      cursor: "pointer"
+    }
+  }, "ANOTHER ONE"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowParalysis(false),
+    style: {
+      flex: 1,
+      background: "#C084FC",
+      color: "#FDFBFF",
+      border: "none",
+      borderRadius: 8,
+      padding: "10px 0",
+      fontFamily: "'DM Mono',monospace",
+      fontSize: 12,
+      fontWeight: 700,
+      cursor: "pointer"
+    }
+  }, "OK, GOING")))), /*#__PURE__*/React.createElement(TopBar, {
+    totalXP: totalXP,
+    streak: streak,
+    active: active,
+    onSwitch: setActive
+  }), /*#__PURE__*/React.createElement("div", {
+    style: W
+  }, active === "morning" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      animation: "fadeUp 0.4s ease forwards"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 20
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#C084FC",
+      fontSize: 10,
+      letterSpacing: 3,
+      marginBottom: 4
+    }
+  }, todayDisplay.toUpperCase()), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 40,
+      color: "#2D1B4E",
+      lineHeight: 1
+    }
+  }, "GOOD MORNING"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "rgba(100,60,140,0.25)",
+      fontSize: 12,
+      marginTop: 6
+    }
+  }, "Day ", daysIn + 1, " · ", availMorning.filter(h => mChecked[h.id]).length, "/", availMorning.length, " done")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(192,132,252,0.08)",
+      border: "1px solid rgba(192,132,252,0.2)",
+      borderRadius: 8,
+      padding: 14,
+      marginBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: "#C084FC",
+      letterSpacing: 2,
+      marginBottom: 5
+    }
+  }, "TODAY'S INTENTION"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#2D1B4E",
+      fontSize: 13,
+      lineHeight: 1.5
+    }
+  }, "\"", uAnswers[0], "\"")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "✨ MANIFESTATION JOURNAL"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: manifestXp ? "#34D399" : "#C084FC"
+    }
+  }, manifestXp ? `✓ +40 XP` : "+40 XP")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "rgba(80,50,120,0.5)",
+      marginBottom: 8,
+      fontStyle: "italic"
+    }
+  }, manifestPrompt), /*#__PURE__*/React.createElement("textarea", {
+    value: manifestText,
+    onChange: e => setManifestText(e.target.value),
+    onBlur: () => {
+      if (!manifestXp && manifestText.trim().length > 40) {
+        setManifestXp(true);
+        awardXP(40);
+      }
+    },
+    placeholder: "I am... I have... I feel... Write it like it's already real.",
+    rows: 5,
+    style: {
+      width: "100%",
+      ...CARD,
+      padding: 14,
+      color: "#2D1B4E",
+      fontSize: 13,
+      fontFamily: "'DM Mono',monospace",
+      lineHeight: 1.7,
+      border: `1px solid ${manifestXp ? "rgba(52,211,153,0.25)" : "rgba(120,80,160,0.07)"}`,
+      marginBottom: 0
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "MORNING HABITS"), HABIT_JOURNEY.map(h => {
+    const unlocked = isUnlocked(h);
+    const done = !!mChecked[h.id];
+    if (!unlocked) return null;
+    return /*#__PURE__*/React.createElement("div", {
+      key: h.id,
       style: {
-        position: "fixed",
-        inset: 0,
-        zIndex: 200,
-        background: "rgba(80,50,120,0.7)",
+        borderBottom: "1px solid rgba(120,80,160,0.04)",
+        padding: "8px 4px 12px",
+        opacity: done ? 0.38 : 1,
+        transition: "opacity 0.3s"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
-      },
-      children: /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          textAlign: "center",
-          animation: "unlockPop 0.5s ease"
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 56,
-            marginBottom: 10
-          },
-          children: "🧩"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontFamily: "'Bebas Neue',sans-serif",
-            fontSize: 38,
-            color: "#7C3AED"
-          },
-          children: "PUZZLES UNLOCKED"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 13,
-            color: "rgba(80,50,120,0.5)",
-            marginTop: 8
-          },
-          children: "Evening routine complete. You earned it."
-        }, void 0, false)]
-      }, void 0, true)
-    }, void 0, false), stopFired && /*#__PURE__*/_jsxDEV("div", {
+        gap: 12
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      className: "habit-check",
+      onClick: () => checkHabit(HABIT_JOURNEY, mChecked, setMChecked, h.id),
       style: {
-        position: "fixed",
-        bottom: 90,
-        left: 16,
-        right: 16,
-        zIndex: 150,
-        background: "#FCA5A5",
-        color: "#2D1B4E",
-        borderRadius: 10,
-        padding: "12px 16px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        fontFamily: "'DM Mono',monospace"
-      },
-      children: [/*#__PURE__*/_jsxDEV("span", {
-        style: {
-          fontSize: 13
-        },
-        children: "🛑 11:00 PM — PUT THE PUZZLE DOWN."
-      }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-        onClick: () => setStopFired(false),
-        style: {
-          background: "rgba(100,60,140,0.2)",
-          border: "none",
-          color: "#2D1B4E",
-          borderRadius: 6,
-          padding: "4px 10px",
-          cursor: "pointer",
-          fontSize: 12
-        },
-        children: "ok"
-      }, void 0, false)]
-    }, void 0, true), showParalysis && /*#__PURE__*/_jsxDEV("div", {
-      onClick: () => setShowParalysis(false),
-      style: {
-        position: "fixed",
-        inset: 0,
-        zIndex: 250,
-        background: "rgba(80,50,120,0.65)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 24
-      },
-      children: /*#__PURE__*/_jsxDEV("div", {
-        onClick: e => e.stopPropagation(),
-        style: {
-          background: "#F5F0FF",
-          border: "1px solid rgba(120,80,160,0.1)",
-          borderRadius: 14,
-          padding: 28,
-          maxWidth: 360,
-          width: "100%",
-          textAlign: "center"
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 32,
-            marginBottom: 10
-          },
-          children: "🆘"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 10,
-            color: "#C084FC",
-            letterSpacing: 3,
-            marginBottom: 12
-          },
-          children: "YOU'RE STUCK. THAT'S OK."
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontFamily: "'Bebas Neue',sans-serif",
-            fontSize: 24,
-            color: "#2D1B4E",
-            lineHeight: 1.3,
-            marginBottom: 16
-          },
-          children: paralysisStep
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 12,
-            color: "rgba(80,50,120,0.45)",
-            marginBottom: 20,
-            lineHeight: 1.6
-          },
-          children: "Don't think about the whole task. Just do this one thing."
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 8
-          },
-          children: [/*#__PURE__*/_jsxDEV("button", {
-            onClick: () => {
-              setParalysisStep(PARALYSIS[Math.floor(Math.random() * PARALYSIS.length)]);
-            },
-            style: {
-              flex: 1,
-              background: "rgba(120,80,160,0.06)",
-              color: "rgba(80,50,120,0.7)",
-              border: "1px solid rgba(120,80,160,0.1)",
-              borderRadius: 8,
-              padding: "10px 0",
-              fontFamily: "'DM Mono',monospace",
-              fontSize: 12,
-              cursor: "pointer"
-            },
-            children: "ANOTHER ONE"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-            onClick: () => setShowParalysis(false),
-            style: {
-              flex: 1,
-              background: "#C084FC",
-              color: "#FDFBFF",
-              border: "none",
-              borderRadius: 8,
-              padding: "10px 0",
-              fontFamily: "'DM Mono',monospace",
-              fontSize: 12,
-              fontWeight: 700,
-              cursor: "pointer"
-            },
-            children: "OK, GOING"
-          }, void 0, false)]
-        }, void 0, true)]
-      }, void 0, true)
-    }, void 0, false), /*#__PURE__*/_jsxDEV(TopBar, {
-      totalXP: totalXP,
-      streak: streak,
-      active: active,
-      onSwitch: setActive
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: W,
-      children: [active === "morning" && /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          animation: "fadeUp 0.4s ease forwards"
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 20
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "#C084FC",
-              fontSize: 10,
-              letterSpacing: 3,
-              marginBottom: 4
-            },
-            children: todayDisplay.toUpperCase()
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontFamily: "'Bebas Neue',sans-serif",
-              fontSize: 40,
-              color: "#2D1B4E",
-              lineHeight: 1
-            },
-            children: "GOOD MORNING"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "rgba(100,60,140,0.25)",
-              fontSize: 12,
-              marginTop: 6
-            },
-            children: ["Day ", daysIn + 1, " · ", availMorning.filter(h => mChecked[h.id]).length, "/", availMorning.length, " done"]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: "rgba(192,132,252,0.08)",
-            border: "1px solid rgba(192,132,252,0.2)",
-            borderRadius: 8,
-            padding: 14,
-            marginBottom: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 9,
-              color: "#C084FC",
-              letterSpacing: 2,
-              marginBottom: 5
-            },
-            children: "TODAY'S INTENTION"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "#2D1B4E",
-              fontSize: 13,
-              lineHeight: 1.5
-            },
-            children: ["\"", uAnswers[0], "\""]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: 8
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: SL,
-              children: "✨ MANIFESTATION JOURNAL"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 10,
-                color: manifestXp ? "#34D399" : "#C084FC"
-              },
-              children: manifestXp ? `✓ +40 XP` : "+40 XP"
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 12,
-              color: "rgba(80,50,120,0.5)",
-              marginBottom: 8,
-              fontStyle: "italic"
-            },
-            children: manifestPrompt
-          }, void 0, false), /*#__PURE__*/_jsxDEV("textarea", {
-            value: manifestText,
-            onChange: e => setManifestText(e.target.value),
-            onBlur: () => {
-              if (!manifestXp && manifestText.trim().length > 40) {
-                setManifestXp(true);
-                awardXP(40);
-              }
-            },
-            placeholder: "I am... I have... I feel... Write it like it's already real.",
-            rows: 5,
-            style: {
-              width: "100%",
-              ...CARD,
-              padding: 14,
-              color: "#2D1B4E",
-              fontSize: 13,
-              fontFamily: "'DM Mono',monospace",
-              lineHeight: 1.7,
-              border: `1px solid ${manifestXp ? "rgba(52,211,153,0.25)" : "rgba(120,80,160,0.07)"}`,
-              marginBottom: 0
-            }
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "MORNING HABITS"
-          }, void 0, false), HABIT_JOURNEY.map(h => {
-            const unlocked = isUnlocked(h);
-            const done = !!mChecked[h.id];
-            if (!unlocked) return null;
-            return /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                borderBottom: "1px solid rgba(120,80,160,0.04)",
-                padding: "8px 4px 12px",
-                opacity: done ? 0.38 : 1,
-                transition: "opacity 0.3s"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12
-                },
-                children: [/*#__PURE__*/_jsxDEV("button", {
-                  className: "habit-check",
-                  onClick: () => checkHabit(HABIT_JOURNEY, mChecked, setMChecked, h.id),
-                  style: {
-                    width: 26,
-                    height: 26,
-                    borderRadius: 6,
-                    flexShrink: 0,
-                    border: done ? "none" : "1.5px solid rgba(100,60,140,0.15)",
-                    background: done ? "#34D399" : "transparent",
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 13,
-                    color: "#fff",
-                    animation: done ? "pop 0.3s ease" : "none"
-                  },
-                  children: done ? "✓" : ""
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 15
-                  },
-                  children: h.emoji
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: "#2D1B4E",
-                    fontSize: 13,
-                    flex: 1,
-                    textDecoration: done ? "line-through" : "none"
-                  },
-                  children: h.label
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 10,
-                    color: "#C084FC"
-                  },
-                  children: ["+", h.xp]
-                }, void 0, true)]
-              }, void 0, true), h.duration > 0 && !done && /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  paddingLeft: 38
-                },
-                children: /*#__PURE__*/_jsxDEV(TimerBlock, {
-                  habit: h,
-                  onComplete: () => checkHabit(HABIT_JOURNEY, mChecked, setMChecked, h.id)
-                }, void 0, false)
-              }, void 0, false)]
-            }, h.id, true);
-          })]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            ...CARD,
-            marginBottom: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 12
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 9,
-                color: "rgba(100,60,140,0.4)",
-                letterSpacing: 2
-              },
-              children: "👁️ MIEBO DROPS · 4X DAILY"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 10,
-                color: "#2DD4BF"
-              },
-              children: [miebo.length, "/4 today"]
-            }, void 0, true)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 8,
-              marginBottom: 12
-            },
-            children: [0, 1, 2, 3].map(i => {
-              const taken = i < miebo.length;
-              return /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  flex: 1,
-                  height: 8,
-                  borderRadius: 4,
-                  background: taken ? "#2DD4BF" : "rgba(45,212,191,0.15)",
-                  transition: "background 0.3s"
-                }
-              }, i, false);
-            })
-          }, void 0, false), miebo.length === 0 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "rgba(100,60,140,0.4)",
-              fontSize: 12,
-              marginBottom: 12
-            },
-            children: "No doses logged yet today. Tap below for your first."
-          }, void 0, false), miebo.length > 0 && miebo.length < 4 && nextMieboGap() !== null && (nextMieboGap() === 0 ? /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "#D97706",
-              fontSize: 13,
-              marginBottom: 12
-            },
-            children: "⏰ Time for your next dose"
-          }, void 0, false) : /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "#2D1B4E",
-              fontSize: 16,
-              fontFamily: "monospace",
-              marginBottom: 12
-            },
-            children: ["Next dose in ", Math.floor(nextMieboGap() / 3600000), "h ", Math.floor(nextMieboGap() % 3600000 / 60000), "m"]
-          }, void 0, true)), miebo.length >= 4 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "#34D399",
-              fontSize: 13,
-              marginBottom: 12
-            },
-            children: "✓ All 4 doses done for today"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-            onClick: logMiebo,
-            disabled: miebo.length >= 4,
-            style: {
-              width: "100%",
-              background: miebo.length >= 4 ? "rgba(45,212,191,0.15)" : "#2DD4BF",
-              color: miebo.length >= 4 ? "rgba(100,60,140,0.4)" : "#fff",
-              border: "none",
-              borderRadius: 8,
-              padding: "11px 0",
-              fontFamily: "'DM Mono',monospace",
-              fontSize: 12,
-              fontWeight: 700,
-              cursor: miebo.length >= 4 ? "default" : "pointer"
-            },
-            children: miebo.length >= 4 ? "DONE FOR TODAY" : `👁️ LOG DOSE ${miebo.length + 1} OF 4`
-          }, void 0, false), miebo.length > 0 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 10,
-              marginTop: 10,
-              flexWrap: "wrap"
-            },
-            children: miebo.map((t, i) => /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 10,
-                color: "rgba(100,60,140,0.4)"
-              },
-              children: [i + 1, ": ", new Date(t).toLocaleTimeString("en-US", {
-                hour: "numeric",
-                minute: "2-digit"
-              })]
-            }, i, true))
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: 8
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: SL,
-              children: "WEIGHT (OPTIONAL)"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 10,
-                color: "rgba(100,60,140,0.2)"
-              },
-              children: "+5 XP · no pressure"
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 8
-            },
-            children: [/*#__PURE__*/_jsxDEV("input", {
-              value: weightInput,
-              onChange: e => setWeightInput(e.target.value),
-              onKeyDown: e => {
-                if (e.key === "Enter") logWeight();
-              },
-              type: "number",
-              placeholder: "lbs",
-              style: {
-                flex: 1,
-                background: "rgba(120,80,160,0.04)",
-                border: "1px solid rgba(120,80,160,0.07)",
-                borderRadius: 8,
-                padding: "10px 14px",
-                color: "#2D1B4E",
-                fontSize: 13,
-                fontFamily: "'DM Mono',monospace"
-              }
-            }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-              onClick: logWeight,
-              style: {
-                background: "rgba(192,132,252,0.18)",
-                color: "#C084FC",
-                border: "1px solid rgba(192,132,252,0.35)",
-                borderRadius: 8,
-                padding: "10px 18px",
-                fontFamily: "'DM Mono',monospace",
-                fontSize: 12,
-                fontWeight: 700,
-                cursor: "pointer"
-              },
-              children: "LOG"
-            }, void 0, false)]
-          }, void 0, true), weightLog.length > 1 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              marginTop: 12
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                gap: 5,
-                alignItems: "flex-end",
-                height: 48
-              },
-              children: weightLog.slice(-14).map((e, i, arr) => {
-                const vals = arr.map(x => x.value),
-                  mn = Math.min(...vals),
-                  mx = Math.max(...vals),
-                  rng = mx - mn || 1;
-                const h = 8 + (e.value - mn) / rng * 38;
-                return /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    flex: 1,
-                    height: h,
-                    background: i === arr.length - 1 ? "#C084FC" : "rgba(192,132,252,0.35)",
-                    borderRadius: 2
-                  }
-                }, e.date, false);
-              })
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                justifyContent: "space-between",
-                fontSize: 10,
-                color: "rgba(100,60,140,0.25)",
-                marginTop: 4
-              },
-              children: [/*#__PURE__*/_jsxDEV("span", {
-                children: [weightLog[Math.max(0, weightLog.length - 14)].value, " lbs"]
-              }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                children: [weightLog[weightLog.length - 1].value, " lbs latest"]
-              }, void 0, true)]
-            }, void 0, true)]
-          }, void 0, true)]
-        }, void 0, true), morningDone && /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: "rgba(192,132,252,0.09)",
-            border: "1px solid rgba(192,132,252,0.3)",
-            borderRadius: 8,
-            padding: 16,
-            textAlign: "center",
-            marginBottom: 16
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontFamily: "'Bebas Neue',sans-serif",
-              fontSize: 28,
-              color: "#7C3AED"
-            },
-            children: "MORNING COMPLETE ☀️"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 12,
-              color: "rgba(80,50,120,0.45)",
-              marginTop: 6
-            },
-            children: "See you tonight."
-          }, void 0, false)]
-        }, void 0, true)]
-      }, void 0, true), active === "roadmap" && /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          animation: "fadeUp 0.4s ease forwards"
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 22
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "#C084FC",
-              fontSize: 10,
-              letterSpacing: 3,
-              marginBottom: 4
-            },
-            children: "YOUR JOURNEY"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontFamily: "'Bebas Neue',sans-serif",
-              fontSize: 40,
-              color: "#2D1B4E",
-              lineHeight: 1
-            },
-            children: "HABIT ROADMAP"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "rgba(100,60,140,0.25)",
-              fontSize: 12,
-              marginTop: 6
-            },
-            children: ["Day ", daysIn + 1, " · ", totalCheckIns, " check-ins completed"]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 28
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "YOUR LAST 14 DAYS"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 4
-            },
-            children: Array.from({
-              length: 14
-            }, (_, i) => {
-              const d = new Date();
-              d.setDate(d.getDate() - (13 - i));
-              const key = d.toISOString().slice(0, 10);
-              const isToday = key === today;
-              const done = db.lastComplete === key || isToday && morningDone;
-              const past = key < today;
-              return /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  flex: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 3
-                },
-                children: [/*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    width: "100%",
-                    aspectRatio: "1",
-                    borderRadius: 4,
-                    background: done ? "#C084FC" : past ? "rgba(120,80,160,0.04)" : "rgba(120,80,160,0.08)",
-                    border: isToday ? "1px solid #C084FC" : "none",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 10,
-                    color: done ? "#FDFBFF" : "rgba(100,60,140,0.2)"
-                  },
-                  children: done ? "✓" : ""
-                }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 7,
-                    color: "rgba(100,60,140,0.2)"
-                  },
-                  children: d.getDate()
-                }, void 0, false)]
-              }, key, true);
-            })
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 28
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "☀️ MORNING PATH"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              position: "relative",
-              paddingLeft: 24
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                position: "absolute",
-                left: 11,
-                top: 16,
-                bottom: 16,
-                width: 2,
-                background: "rgba(120,80,160,0.06)",
-                borderRadius: 1
-              }
-            }, void 0, false), HABIT_JOURNEY.map((h, i) => {
-              const unlocked = isUnlocked(h);
-              const done = !!mChecked[h.id];
-              const pct = unlockProgress(h) * 100;
-              const isFirst = h.dayFloor === 0;
-              return /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  display: "flex",
-                  gap: 14,
-                  marginBottom: 16,
-                  alignItems: "flex-start"
-                },
-                children: [/*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    position: "relative",
-                    flexShrink: 0,
-                    width: 22,
-                    height: 22,
-                    borderRadius: "50%",
-                    background: done ? "#34D399" : unlocked ? "#C084FC" : isFirst ? "#C084FC" : "rgba(120,80,160,0.08)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 11,
-                    color: done || unlocked ? "#FDFBFF" : "rgba(100,60,140,0.2)",
-                    border: !unlocked && !isFirst ? "1px dashed rgba(120,80,160,0.1)" : "none",
-                    zIndex: 1
-                  },
-                  children: done ? "✓" : unlocked ? h.emoji.slice(0, 1) : "🔒"
-                }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    flex: 1,
-                    paddingTop: 2
-                  },
-                  children: [/*#__PURE__*/_jsxDEV("div", {
-                    style: {
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 8,
-                      marginBottom: 3
-                    },
-                    children: [/*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        color: unlocked ? "#fff" : "rgba(100,60,140,0.3)",
-                        fontSize: 13
-                      },
-                      children: [h.emoji, " ", h.label]
-                    }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        fontSize: 10,
-                        color: "#C084FC",
-                        marginLeft: "auto"
-                      },
-                      children: ["+", h.xp, " XP"]
-                    }, void 0, true)]
-                  }, void 0, true), !unlocked && /*#__PURE__*/_jsxDEV(_Fragment, {
-                    children: [/*#__PURE__*/_jsxDEV("div", {
-                      style: {
-                        height: 3,
-                        background: "rgba(120,80,160,0.06)",
-                        borderRadius: 2,
-                        overflow: "hidden",
-                        marginBottom: 3
-                      },
-                      children: /*#__PURE__*/_jsxDEV("div", {
-                        style: {
-                          height: "100%",
-                          width: `${pct}%`,
-                          background: "rgba(192,132,252,0.55)",
-                          borderRadius: 2,
-                          transition: "width 0.5s ease"
-                        }
-                      }, void 0, false)
-                    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                      style: {
-                        fontSize: 10,
-                        color: "rgba(100,60,140,0.25)"
-                      },
-                      children: ["Day ", h.dayFloor, " · ", h.checksNeeded, " check-ins needed · ", Math.round(pct), "% there"]
-                    }, void 0, true)]
-                  }, void 0, true), unlocked && !done && /*#__PURE__*/_jsxDEV("div", {
-                    style: {
-                      fontSize: 10,
-                      color: "#34D399"
-                    },
-                    children: "✓ Unlocked · complete in morning tab"
-                  }, void 0, false), done && /*#__PURE__*/_jsxDEV("div", {
-                    style: {
-                      fontSize: 10,
-                      color: "rgba(100,60,140,0.3)"
-                    },
-                    children: "Done today"
-                  }, void 0, false)]
-                }, void 0, true)]
-              }, h.id, true);
-            })]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 28
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "🌙 EVENING PATH"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              position: "relative",
-              paddingLeft: 24
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                position: "absolute",
-                left: 11,
-                top: 16,
-                bottom: 16,
-                width: 2,
-                background: "rgba(120,80,160,0.06)",
-                borderRadius: 1
-              }
-            }, void 0, false), EVENING_JOURNEY.map(h => {
-              const unlocked = isUnlocked(h);
-              const done = !!eChecked[h.id];
-              const pct = unlockProgress(h) * 100;
-              return /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  display: "flex",
-                  gap: 14,
-                  marginBottom: 16,
-                  alignItems: "flex-start"
-                },
-                children: [/*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    position: "relative",
-                    flexShrink: 0,
-                    width: 22,
-                    height: 22,
-                    borderRadius: "50%",
-                    background: done ? "#34D399" : unlocked ? "#A78BFA" : "rgba(120,80,160,0.08)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 11,
-                    color: done || unlocked ? "#FDFBFF" : "rgba(100,60,140,0.2)",
-                    border: !unlocked ? "1px dashed rgba(120,80,160,0.1)" : "none",
-                    zIndex: 1
-                  },
-                  children: done ? "✓" : unlocked ? h.emoji.slice(0, 1) : "🔒"
-                }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    flex: 1,
-                    paddingTop: 2
-                  },
-                  children: [/*#__PURE__*/_jsxDEV("div", {
-                    style: {
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 8,
-                      marginBottom: 3
-                    },
-                    children: [/*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        color: unlocked ? "#fff" : "rgba(100,60,140,0.3)",
-                        fontSize: 13
-                      },
-                      children: [h.emoji, " ", h.label]
-                    }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        fontSize: 10,
-                        color: "#A78BFA",
-                        marginLeft: "auto"
-                      },
-                      children: ["+", h.xp, " XP"]
-                    }, void 0, true)]
-                  }, void 0, true), !unlocked && /*#__PURE__*/_jsxDEV(_Fragment, {
-                    children: [/*#__PURE__*/_jsxDEV("div", {
-                      style: {
-                        height: 3,
-                        background: "rgba(120,80,160,0.06)",
-                        borderRadius: 2,
-                        overflow: "hidden",
-                        marginBottom: 3
-                      },
-                      children: /*#__PURE__*/_jsxDEV("div", {
-                        style: {
-                          height: "100%",
-                          width: `${pct}%`,
-                          background: "rgba(167,139,250,0.6)",
-                          borderRadius: 2
-                        }
-                      }, void 0, false)
-                    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                      style: {
-                        fontSize: 10,
-                        color: "rgba(100,60,140,0.25)"
-                      },
-                      children: ["Day ", h.dayFloor, " · ", h.checksNeeded, " check-ins · ", Math.round(pct), "% there"]
-                    }, void 0, true)]
-                  }, void 0, true), unlocked && !done && /*#__PURE__*/_jsxDEV("div", {
-                    style: {
-                      fontSize: 10,
-                      color: "#34D399"
-                    },
-                    children: "✓ Unlocked · complete in evening tab"
-                  }, void 0, false), done && /*#__PURE__*/_jsxDEV("div", {
-                    style: {
-                      fontSize: 10,
-                      color: "rgba(100,60,140,0.3)"
-                    },
-                    children: "Done tonight"
-                  }, void 0, false)]
-                }, void 0, true)]
-              }, h.id, true);
-            })]
-          }, void 0, true)]
-        }, void 0, true), streak >= 3 && /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: "rgba(245,158,11,0.08)",
-            border: "1px solid rgba(245,158,11,0.2)",
-            borderRadius: 8,
-            padding: 16,
-            textAlign: "center",
-            marginBottom: 16
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 26,
-              marginBottom: 4
-            },
-            children: "🔥"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontFamily: "'Bebas Neue',sans-serif",
-              fontSize: 24,
-              color: "#D97706"
-            },
-            children: [streak, " DAY STREAK"]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 11,
-              color: "rgba(100,60,140,0.3)",
-              marginTop: 4
-            },
-            children: ["Streak bonus: +", streak * 5, " XP on completion"]
-          }, void 0, true)]
-        }, void 0, true)]
-      }, void 0, true), active === "hydration" && /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          animation: "fadeUp 0.4s ease forwards"
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 20
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "#2DD4BF",
-              fontSize: 10,
-              letterSpacing: 3,
-              marginBottom: 4
-            },
-            children: "HYDRATION"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontFamily: "'Bebas Neue',sans-serif",
-              fontSize: 40,
-              color: "#2D1B4E",
-              lineHeight: 1
-            },
-            children: "STAY HYDRATED"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "rgba(100,60,140,0.25)",
-              fontSize: 12,
-              marginTop: 6
-            },
-            children: [Object.values(hydChecked).filter(Boolean).length, " of ", HYDRATION_ITEMS.length, " sources today"]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: "rgba(45,212,191,0.08)",
-            border: "1px solid rgba(45,212,191,0.25)",
-            borderRadius: 10,
-            padding: 16,
-            marginBottom: 22,
-            display: "flex",
-            alignItems: "center",
-            gap: 12
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 22
-            },
-            children: "💧"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              flex: 1
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 9,
-                color: "#2DD4BF",
-                letterSpacing: 2,
-                marginBottom: 4
-              },
-              children: "GENTLE REMINDER"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                color: "#2D1B4E",
-                fontSize: 13,
-                lineHeight: 1.4
-              },
-              children: HYDRATION_NUDGES[nudgeIdx]
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("button", {
-            onClick: () => setNudgeIdx(i => (i + 1) % HYDRATION_NUDGES.length),
-            style: {
-              background: "rgba(45,212,191,0.12)",
-              color: "#2DD4BF",
-              border: "1px solid rgba(45,212,191,0.25)",
-              borderRadius: 6,
-              padding: "6px 10px",
-              fontSize: 10,
-              fontFamily: "'DM Mono',monospace",
-              cursor: "pointer",
-              whiteSpace: "nowrap"
-            },
-            children: "next tip"
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "HYDRATION HELPERS · +3 XP EACH"
-          }, void 0, false), HYDRATION_ITEMS.map(item => /*#__PURE__*/_jsxDEV("div", {
-            onClick: () => toggleHyd(item.id),
-            style: {
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              padding: "10px 4px",
-              borderBottom: "1px solid rgba(120,80,160,0.04)",
-              cursor: "pointer",
-              opacity: hydChecked[item.id] ? 0.42 : 1,
-              transition: "opacity 0.2s"
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                width: 22,
-                height: 22,
-                borderRadius: 5,
-                flexShrink: 0,
-                border: hydChecked[item.id] ? "none" : "1.5px solid rgba(100,60,140,0.15)",
-                background: hydChecked[item.id] ? "#2DD4BF" : "transparent",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 11,
-                color: "#fff",
-                transition: "all 0.2s"
-              },
-              children: hydChecked[item.id] ? "✓" : ""
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 15
-              },
-              children: item.emoji
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                flex: 1
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  color: "#2D1B4E",
-                  fontSize: 13,
-                  textDecoration: hydChecked[item.id] ? "line-through" : "none"
-                },
-                children: item.label
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  color: "rgba(100,60,140,0.3)",
-                  fontSize: 10,
-                  marginTop: 1
-                },
-                children: item.note
-              }, void 0, false)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 10,
-                color: "#2DD4BF"
-              },
-              children: "+3"
-            }, void 0, false)]
-          }, item.id, true))]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 22
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "DRY MOUTH LEVEL (1–10)"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 5,
-              flexWrap: "wrap"
-            },
-            children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => /*#__PURE__*/_jsxDEV("button", {
-              onClick: () => {
-                setDryMouth(n);
-                saveHydMeta();
-              },
-              style: {
-                width: 38,
-                height: 38,
-                borderRadius: 7,
-                border: "none",
-                cursor: "pointer",
-                background: dryMouth === n ? n <= 3 ? "#34D399" : n <= 6 ? "#F59E0B" : "#F87171" : "rgba(120,80,160,0.06)",
-                color: dryMouth === n ? "#FDFBFF" : "rgba(80,50,120,0.5)",
-                fontFamily: "'DM Mono',monospace",
-                fontSize: 13,
-                fontWeight: 700,
-                transition: "all 0.2s"
-              },
-              children: n
-            }, n, false))
-          }, void 0, false), dryMouth >= 7 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              marginTop: 10,
-              padding: "10px 14px",
-              background: "rgba(245,158,11,0.1)",
-              border: "1px solid rgba(245,158,11,0.22)",
-              borderRadius: 8,
-              fontSize: 12,
-              color: "#F59E0B"
-            },
-            children: "Try aloe vera juice or a few sips of water."
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 22
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "CAFFEINE / SWEET DRINKS"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              alignItems: "center",
-              gap: 12
-            },
-            children: [/*#__PURE__*/_jsxDEV("button", {
-              onClick: () => {
-                setCafCount(c => Math.max(0, c - 1));
-                saveHydMeta();
-              },
-              style: {
-                width: 36,
-                height: 36,
-                borderRadius: 8,
-                background: "rgba(120,80,160,0.06)",
-                border: "none",
-                color: "#2D1B4E",
-                fontSize: 18,
-                cursor: "pointer"
-              },
-              children: "−"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                textAlign: "center",
-                minWidth: 56
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: 32,
-                  color: cafCount >= 3 ? "#F59E0B" : "#fff"
-                },
-                children: cafCount
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 10,
-                  color: "rgba(100,60,140,0.3)"
-                },
-                children: "drinks"
-              }, void 0, false)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("button", {
-              onClick: () => {
-                setCafCount(c => c + 1);
-                saveHydMeta();
-              },
-              style: {
-                width: 36,
-                height: 36,
-                borderRadius: 8,
-                background: "rgba(120,80,160,0.06)",
-                border: "none",
-                color: "#2D1B4E",
-                fontSize: 18,
-                cursor: "pointer"
-              },
-              children: "+"
-            }, void 0, false), cafCount >= 2 && /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                flex: 1,
-                fontSize: 11,
-                color: "rgba(80,50,120,0.45)",
-                lineHeight: 1.5
-              },
-              children: "Before the next one, try a few sips of water first."
-            }, void 0, false)]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "IC SYMPTOMS TODAY"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-            onClick: () => {
-              setIcFlare(!icFlare);
-              saveHydMeta();
-            },
-            style: {
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              background: icFlare ? "rgba(248,113,113,0.12)" : "rgba(120,80,160,0.04)",
-              border: `1px solid ${icFlare ? "rgba(248,113,113,0.35)" : "rgba(120,80,160,0.08)"}`,
-              borderRadius: 8,
-              padding: "12px 14px",
-              cursor: "pointer",
-              width: "100%",
-              textAlign: "left"
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                width: 18,
-                height: 18,
-                borderRadius: 4,
-                background: icFlare ? "#F87171" : "transparent",
-                border: icFlare ? "none" : "1.5px solid rgba(100,60,140,0.2)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 10,
-                color: "#2D1B4E"
-              },
-              children: icFlare ? "✓" : ""
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  color: "#2D1B4E",
-                  fontSize: 13
-                },
-                children: "Experiencing a flare today"
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  color: "rgba(100,60,140,0.3)",
-                  fontSize: 10,
-                  marginTop: 2
-                },
-                children: "Logged for pattern tracking · no pressure today"
-              }, void 0, false)]
-            }, void 0, true)]
-          }, void 0, true), icFlare && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              marginTop: 10,
-              padding: "10px 14px",
-              background: "rgba(248,113,113,0.08)",
-              border: "1px solid rgba(248,113,113,0.18)",
-              borderRadius: 8,
-              fontSize: 12,
-              color: "rgba(80,50,120,0.6)",
-              lineHeight: 1.6
-            },
-            children: "Be gentle today. Small sips only. Aloe vera juice may help."
-          }, void 0, false)]
-        }, void 0, true), hydLog.length > 1 && /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 16
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "DRY MOUTH TREND · 7 DAYS"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 5,
-              alignItems: "flex-end",
-              height: 48
-            },
-            children: hydLog.slice(-7).map(e => {
-              const h = e.dryMouth ? e.dryMouth / 10 * 44 + 4 : 4;
-              const col = e.dryMouth <= 3 ? "#34D399" : e.dryMouth <= 6 ? "#F59E0B" : "#F87171";
-              return /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  flex: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 3
-                },
-                children: [/*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    width: "100%",
-                    height: h,
-                    background: e.dryMouth ? col : "rgba(120,80,160,0.06)",
-                    borderRadius: 2
-                  }
-                }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 7,
-                    color: "rgba(100,60,140,0.2)"
-                  },
-                  children: e.date.slice(5)
-                }, void 0, false)]
-              }, e.date, true);
-            })
-          }, void 0, false)]
-        }, void 0, true)]
-      }, void 0, true), active === "evening" && /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          animation: "fadeUp 0.4s ease forwards"
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 20
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "#A78BFA",
-              fontSize: 10,
-              letterSpacing: 3,
-              marginBottom: 4
-            },
-            children: "WIND DOWN · 10:00 PM"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontFamily: "'Bebas Neue',sans-serif",
-              fontSize: 40,
-              color: "#2D1B4E",
-              lineHeight: 1
-            },
-            children: "GOOD EVENING"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "rgba(100,60,140,0.25)",
-              fontSize: 12,
-              marginTop: 6
-            },
-            children: puzzleUnlocked ? "🧩 puzzles unlocked" : "complete routine to unlock puzzles"
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "EVENING ROUTINE"
-          }, void 0, false), EVENING_JOURNEY.map(h => {
-            if (!isUnlocked(h)) return null;
-            const done = !!eChecked[h.id];
-            return /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                borderBottom: "1px solid rgba(120,80,160,0.04)",
-                padding: "8px 4px 12px",
-                opacity: done ? 0.38 : 1,
-                transition: "opacity 0.3s"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12
-                },
-                children: [/*#__PURE__*/_jsxDEV("button", {
-                  className: "habit-check",
-                  onClick: () => checkHabit(EVENING_JOURNEY, eChecked, setEChecked, h.id),
-                  style: {
-                    width: 26,
-                    height: 26,
-                    borderRadius: 6,
-                    flexShrink: 0,
-                    border: done ? "none" : "1.5px solid rgba(100,60,140,0.15)",
-                    background: done ? "#34D399" : "transparent",
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 13,
-                    color: "#FDFBFF"
-                  },
-                  children: done ? "✓" : ""
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 15
-                  },
-                  children: h.emoji
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: "#2D1B4E",
-                    fontSize: 13,
-                    flex: 1,
-                    textDecoration: done ? "line-through" : "none"
-                  },
-                  children: h.label
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 10,
-                    color: "#A78BFA"
-                  },
-                  children: ["+", h.xp]
-                }, void 0, true)]
-              }, void 0, true), h.duration > 0 && !done && /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  paddingLeft: 38
-                },
-                children: /*#__PURE__*/_jsxDEV(TimerBlock, {
-                  habit: h,
-                  onComplete: () => checkHabit(EVENING_JOURNEY, eChecked, setEChecked, h.id)
-                }, void 0, false)
-              }, void 0, false)]
-            }, h.id, true);
-          }), customEvening.map(item => {
-            const done = !!customChecked[item.id];
-            return /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                borderBottom: "1px solid rgba(120,80,160,0.04)",
-                padding: "8px 4px 12px",
-                opacity: done ? 0.38 : 1,
-                transition: "opacity 0.3s"
-              },
-              children: /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12
-                },
-                children: [/*#__PURE__*/_jsxDEV("button", {
-                  className: "habit-check",
-                  onClick: () => toggleCustomEvening(item.id),
-                  style: {
-                    width: 26,
-                    height: 26,
-                    borderRadius: 6,
-                    flexShrink: 0,
-                    border: done ? "none" : "1.5px solid rgba(100,60,140,0.15)",
-                    background: done ? "#34D399" : "transparent",
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 13,
-                    color: "#FDFBFF"
-                  },
-                  children: done ? "✓" : ""
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 15
-                  },
-                  children: "✨"
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: "#2D1B4E",
-                    fontSize: 13,
-                    flex: 1,
-                    textDecoration: done ? "line-through" : "none"
-                  },
-                  children: item.label
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 10,
-                    color: "#A78BFA"
-                  },
-                  children: "+10"
-                }, void 0, false)]
-              }, void 0, true)
-            }, item.id, false);
-          }), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 8,
-              marginTop: 10
-            },
-            children: [/*#__PURE__*/_jsxDEV("input", {
-              value: newCustom,
-              onChange: e => setNewCustom(e.target.value),
-              onKeyDown: e => {
-                if (e.key === "Enter") addCustomEvening();
-              },
-              placeholder: "Remembered something else? Add it...",
-              style: {
-                flex: 1,
-                background: "rgba(120,80,160,0.04)",
-                border: "1px solid rgba(120,80,160,0.08)",
-                borderRadius: 8,
-                padding: "9px 12px",
-                color: "#2D1B4E",
-                fontSize: 12,
-                fontFamily: "'DM Mono',monospace"
-              }
-            }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-              onClick: addCustomEvening,
-              style: {
-                background: "#A78BFA",
-                color: "#fff",
-                border: "none",
-                borderRadius: 8,
-                padding: "9px 14px",
-                fontSize: 16,
-                cursor: "pointer",
-                fontWeight: 700,
-                lineHeight: 1
-              },
-              children: "+"
-            }, void 0, false)]
-          }, void 0, true)]
-        }, void 0, true), availEvening.some(h => h.id === "gratitude") && /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 22
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: 6
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: SL,
-              children: "GRATITUDE JOURNAL"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 10,
-                color: gratXp ? "#34D399" : "#A78BFA"
-              },
-              children: gratXp ? "✓ +30 XP" : "+30 XP"
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 12,
-              color: "rgba(80,50,120,0.5)",
-              marginBottom: 8,
-              fontStyle: "italic"
-            },
-            children: gratPrompt
-          }, void 0, false), /*#__PURE__*/_jsxDEV("textarea", {
-            value: gratText,
-            onChange: e => setGratText(e.target.value),
-            onBlur: () => {
-              if (!gratXp && gratText.trim().length > 20) {
-                setGratXp(true);
-                awardXP(30);
-              }
-            },
-            placeholder: "1. \n2. \n3.",
-            rows: 4,
-            style: {
-              width: "100%",
-              background: "rgba(120,80,160,0.04)",
-              border: `1px solid ${gratXp ? "rgba(52,211,153,0.25)" : "rgba(120,80,160,0.07)"}`,
-              borderRadius: 8,
-              padding: 14,
-              color: "#2D1B4E",
-              fontSize: 13,
-              fontFamily: "'DM Mono',monospace",
-              lineHeight: 1.7
-            }
-          }, void 0, false)]
-        }, void 0, true), availEvening.some(h => h.id === "todo") && /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: 10
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: SL,
-              children: "TOMORROW'S TO-DO"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 10,
-                color: todoXp ? "#34D399" : "#A78BFA"
-              },
-              children: todoXp ? "✓ +15 XP" : "+15 XP"
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 8,
-              marginBottom: 10
-            },
-            children: [/*#__PURE__*/_jsxDEV("input", {
-              value: newTodo,
-              onChange: e => setNewTodo(e.target.value),
-              onKeyDown: e => {
-                if (e.key === "Enter") {
-                  if (!newTodo.trim()) return;
-                  setTodos(t => [...t, {
-                    id: Date.now(),
-                    text: newTodo.trim(),
-                    done: false
-                  }]);
-                  setNewTodo("");
-                  if (!todoXp) {
-                    setTodoXp(true);
-                    awardXP(15);
-                  }
-                }
-              },
-              placeholder: "Add a task for tomorrow...",
-              style: {
-                flex: 1,
-                background: "rgba(120,80,160,0.04)",
-                border: "1px solid rgba(120,80,160,0.07)",
-                borderRadius: 8,
-                padding: "10px 14px",
-                color: "#2D1B4E",
-                fontSize: 13,
-                fontFamily: "'DM Mono',monospace"
-              }
-            }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-              onClick: () => {
-                if (!newTodo.trim()) return;
-                setTodos(t => [...t, {
-                  id: Date.now(),
-                  text: newTodo.trim(),
-                  done: false
-                }]);
-                setNewTodo("");
-                if (!todoXp) {
-                  setTodoXp(true);
-                  awardXP(15);
-                }
-              },
-              style: {
-                background: "#A78BFA",
-                color: "#fff",
-                border: "none",
-                borderRadius: 8,
-                padding: "10px 16px",
-                fontSize: 18,
-                cursor: "pointer",
-                fontWeight: 700,
-                lineHeight: 1
-              },
-              children: "+"
-            }, void 0, false)]
-          }, void 0, true), todos.map(todo => /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              padding: "9px 4px",
-              borderBottom: "1px solid rgba(120,80,160,0.04)",
-              opacity: todo.done ? 0.38 : 1
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              onClick: () => setTodos(t => t.map(x => x.id === todo.id ? {
-                ...x,
-                done: !x.done
-              } : x)),
-              style: {
-                width: 18,
-                height: 18,
-                borderRadius: 4,
-                flexShrink: 0,
-                border: todo.done ? "none" : "1.5px solid rgba(100,60,140,0.15)",
-                background: todo.done ? "#34D399" : "transparent",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 10,
-                color: "#fff",
-                cursor: "pointer"
-              },
-              children: todo.done ? "✓" : ""
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: "#2D1B4E",
-                fontSize: 13,
-                flex: 1,
-                textDecoration: todo.done ? "line-through" : "none",
-                cursor: "pointer"
-              },
-              onClick: () => setTodos(t => t.map(x => x.id === todo.id ? {
-                ...x,
-                done: !x.done
-              } : x)),
-              children: todo.text
-            }, void 0, false)]
-          }, todo.id, true))]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: SL,
-            children: "🧩 PUZZLE TIME"
-          }, void 0, false), !puzzleUnlocked ? /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              background: "rgba(120,80,160,0.03)",
-              border: "1px dashed rgba(120,80,160,0.1)",
-              borderRadius: 10,
-              padding: 24,
-              textAlign: "center"
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 32,
-                marginBottom: 8,
-                filter: "grayscale(1)",
-                opacity: 0.3
-              },
-              children: "🧩"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontFamily: "'Bebas Neue',sans-serif",
-                fontSize: 20,
-                color: "rgba(100,60,140,0.35)"
-              },
-              children: "LOCKED"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 12,
-                color: "rgba(100,60,140,0.2)",
-                marginTop: 6
-              },
-              children: "Complete your evening routine to unlock."
-            }, void 0, false)]
-          }, void 0, true) : /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              background: "rgba(167,139,250,0.08)",
-              border: "1px solid rgba(167,139,250,0.3)",
-              borderRadius: 10,
-              padding: 18
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontFamily: "'Bebas Neue',sans-serif",
-                fontSize: 20,
-                color: "#7C3AED",
-                marginBottom: 12
-              },
-              children: "YOU EARNED THIS 🧩"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                flexDirection: "column",
-                gap: 8
-              },
-              children: [{
-                name: "NYT Mini Crossword",
-                emoji: "📰",
-                url: "https://www.nytimes.com/crosswords/game/mini"
-              }, {
-                name: "Wordle",
-                emoji: "🟩",
-                url: "https://www.nytimes.com/games/wordle/index.html"
-              }, {
-                name: "Connections",
-                emoji: "🔗",
-                url: "https://www.nytimes.com/games/connections"
-              }, {
-                name: "Spelling Bee",
-                emoji: "🐝",
-                url: "https://www.nytimes.com/puzzles/spelling-bee"
-              }].map(p => /*#__PURE__*/_jsxDEV("a", {
-                href: p.url,
-                target: "_blank",
-                rel: "noopener noreferrer",
-                style: {
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  padding: "10px 12px",
-                  background: "rgba(167,139,250,0.1)",
-                  borderRadius: 8,
-                  textDecoration: "none"
-                },
-                children: [/*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 16
-                  },
-                  children: p.emoji
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: "#2D1B4E",
-                    fontSize: 13,
-                    fontFamily: "'DM Mono',monospace"
-                  },
-                  children: p.name
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    marginLeft: "auto",
-                    color: "rgba(100,60,140,0.3)",
-                    fontSize: 11
-                  },
-                  children: "→"
-                }, void 0, false)]
-              }, p.name, true))
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                marginTop: 12,
-                padding: "10px 12px",
-                background: "rgba(248,113,113,0.08)",
-                border: "1px solid rgba(248,113,113,0.18)",
-                borderRadius: 8,
-                fontSize: 11,
-                color: "rgba(80,50,120,0.5)",
-                textAlign: "center"
-              },
-              children: "🛑 Hard stop: 11:00 PM"
-            }, void 0, false)]
-          }, void 0, true)]
-        }, void 0, true)]
-      }, void 0, true), active === "shop" && /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          animation: "fadeUp 0.4s ease forwards"
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 20
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "#34D399",
-              fontSize: 10,
-              letterSpacing: 3,
-              marginBottom: 4
-            },
-            children: "SHOPPING LIST"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontFamily: "'Bebas Neue',sans-serif",
-              fontSize: 40,
-              color: "#2D1B4E",
-              lineHeight: 1
-            },
-            children: "WHAT DO YOU NEED?"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              color: "rgba(100,60,140,0.25)",
-              fontSize: 12,
-              marginTop: 6
-            },
-            children: [shopItems.filter(x => !x.done).length, " items left · ", shopItems.filter(x => x.done).length, " done"]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 22
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 8,
-              marginBottom: 10
-            },
-            children: [/*#__PURE__*/_jsxDEV("input", {
-              value: shopInput,
-              onChange: e => setShopInput(e.target.value),
-              onKeyDown: e => {
-                if (e.key === "Enter") addShopItem();
-              },
-              placeholder: "Add anything...",
-              style: {
-                flex: 1,
-                background: "rgba(120,80,160,0.04)",
-                border: "1px solid rgba(120,80,160,0.09)",
-                borderRadius: 8,
-                padding: "11px 14px",
-                color: "#2D1B4E",
-                fontSize: 13,
-                fontFamily: "'DM Mono',monospace"
-              }
-            }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-              onClick: addShopItem,
-              style: {
-                background: "#34D399",
-                color: "#fff",
-                border: "none",
-                borderRadius: 8,
-                padding: "11px 16px",
-                fontSize: 20,
-                cursor: "pointer",
-                fontWeight: 700,
-                lineHeight: 1
-              },
-              children: "+"
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 5,
-              flexWrap: "wrap"
-            },
-            children: SHOP_CATS.map(c => /*#__PURE__*/_jsxDEV("button", {
-              onClick: () => setShopCat(c.id),
-              style: {
-                padding: "4px 10px",
-                borderRadius: 20,
-                border: "none",
-                cursor: "pointer",
-                fontSize: 11,
-                fontFamily: "'DM Mono',monospace",
-                background: shopCat === c.id ? "#34D399" : "rgba(120,80,160,0.06)",
-                color: shopCat === c.id ? "#FDFBFF" : "rgba(80,50,120,0.5)",
-                transition: "all 0.15s"
-              },
-              children: c.label
-            }, c.id, false))
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 5,
-            marginBottom: 18
-          },
-          children: ["all", "todo", "done"].map(f => /*#__PURE__*/_jsxDEV("button", {
-            onClick: () => setShopFilter(f),
-            style: {
-              flex: 1,
-              padding: "6px 0",
-              borderRadius: 6,
-              border: "none",
-              cursor: "pointer",
-              fontSize: 11,
-              fontFamily: "'DM Mono',monospace",
-              background: shopFilter === f ? "rgba(74,222,128,0.15)" : "rgba(120,80,160,0.04)",
-              color: shopFilter === f ? "#34D399" : "rgba(100,60,140,0.3)",
-              transition: "all 0.15s"
-            },
-            children: f === "all" ? "ALL" : f === "todo" ? "TO GET" : "DONE"
-          }, f, false))
-        }, void 0, false), SHOP_CATS.map(cat => {
-          const items = shopItems.filter(x => x.cat === cat.id && (shopFilter === "all" || shopFilter === "todo" && !x.done || shopFilter === "done" && x.done));
-          if (!items.length) return null;
-          return /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              marginBottom: 20
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 11,
-                color: "rgba(100,60,140,0.3)",
-                letterSpacing: 2,
-                marginBottom: 10
-              },
-              children: cat.label
-            }, void 0, false), items.map(item => /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-                padding: "10px 4px",
-                borderBottom: "1px solid rgba(120,80,160,0.04)",
-                opacity: item.done ? 0.38 : 1,
-                transition: "opacity 0.2s"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                onClick: () => toggleShopItem(item.id),
-                style: {
-                  width: 22,
-                  height: 22,
-                  borderRadius: 5,
-                  flexShrink: 0,
-                  border: item.done ? "none" : "1.5px solid rgba(100,60,140,0.15)",
-                  background: item.done ? "#34D399" : "transparent",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 11,
-                  color: "#FDFBFF",
-                  cursor: "pointer",
-                  transition: "all 0.2s"
-                },
-                children: item.done ? "✓" : ""
-              }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                onClick: () => toggleShopItem(item.id),
-                style: {
-                  color: "#2D1B4E",
-                  fontSize: 13,
-                  flex: 1,
-                  textDecoration: item.done ? "line-through" : "none",
-                  cursor: "pointer"
-                },
-                children: item.text
-              }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-                onClick: () => deleteShopItem(item.id),
-                style: {
-                  background: "none",
-                  border: "none",
-                  color: "rgba(100,60,140,0.2)",
-                  fontSize: 16,
-                  cursor: "pointer",
-                  padding: "0 4px",
-                  lineHeight: 1
-                },
-                children: "×"
-              }, void 0, false)]
-            }, item.id, true))]
-          }, cat.id, true);
-        }), shopItems.length === 0 && /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            textAlign: "center",
-            padding: "40px 0",
-            color: "rgba(100,60,140,0.15)",
-            fontSize: 13
-          },
-          children: ["Nothing on the list yet.", /*#__PURE__*/_jsxDEV("br", {}, void 0, false), "Add something above."]
-        }, void 0, true), shopItems.some(x => x.done) && /*#__PURE__*/_jsxDEV("button", {
-          onClick: clearDoneShop,
-          style: {
-            width: "100%",
-            padding: "12px 0",
-            background: "rgba(120,80,160,0.04)",
-            border: "1px solid rgba(120,80,160,0.08)",
-            borderRadius: 8,
-            color: "rgba(100,60,140,0.3)",
-            fontFamily: "'DM Mono',monospace",
-            fontSize: 12,
-            cursor: "pointer",
-            marginTop: 8
-          },
-          children: "Clear done items"
-        }, void 0, false)]
-      }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          textAlign: "center",
-          fontSize: 10,
-          color: "rgba(120,80,160,0.08)",
-          letterSpacing: 3,
-          marginTop: 32
-        },
-        children: "YOU SHOWED UP TODAY."
-      }, void 0, false)]
-    }, void 0, true), /*#__PURE__*/_jsxDEV("button", {
-      onClick: () => {
-        setParalysisStep(PARALYSIS[Math.floor(Math.random() * PARALYSIS.length)]);
-        setShowParalysis(true);
-      },
-      style: {
-        position: "fixed",
-        bottom: 24,
-        right: 20,
-        zIndex: 180,
-        width: 54,
-        height: 54,
-        borderRadius: "50%",
-        background: "linear-gradient(135deg,#C084FC,#A78BFA)",
-        border: "none",
+        width: 26,
+        height: 26,
+        borderRadius: 6,
+        flexShrink: 0,
+        border: done ? "none" : "1.5px solid rgba(100,60,140,0.15)",
+        background: done ? "#34D399" : "transparent",
         cursor: "pointer",
-        fontSize: 22,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        boxShadow: "0 4px 20px rgba(0,0,0,0.5)"
-      },
-      children: "🆘"
-    }, void 0, false)]
-  }, void 0, true);
+        fontSize: 13,
+        color: "#fff",
+        animation: done ? "pop 0.3s ease" : "none"
+      }
+    }, done ? "✓" : ""), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 15
+      }
+    }, h.emoji), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#2D1B4E",
+        fontSize: 13,
+        flex: 1,
+        textDecoration: done ? "line-through" : "none"
+      }
+    }, h.label), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 10,
+        color: "#C084FC"
+      }
+    }, "+", h.xp)), h.duration > 0 && !done && /*#__PURE__*/React.createElement("div", {
+      style: {
+        paddingLeft: 38
+      }
+    }, /*#__PURE__*/React.createElement(TimerBlock, {
+      habit: h,
+      onComplete: () => checkHabit(HABIT_JOURNEY, mChecked, setMChecked, h.id)
+    })));
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...CARD,
+      marginBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: "rgba(100,60,140,0.4)",
+      letterSpacing: 2
+    }
+  }, "👁️ MIEBO DROPS · 4X DAILY"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: "#2DD4BF"
+    }
+  }, miebo.length, "/4 today")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 12
+    }
+  }, [0, 1, 2, 3].map(i => {
+    const taken = i < miebo.length;
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: {
+        flex: 1,
+        height: 8,
+        borderRadius: 4,
+        background: taken ? "#2DD4BF" : "rgba(45,212,191,0.15)",
+        transition: "background 0.3s"
+      }
+    });
+  })), miebo.length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "rgba(100,60,140,0.4)",
+      fontSize: 12,
+      marginBottom: 12
+    }
+  }, "No doses logged yet today. Tap below for your first."), miebo.length > 0 && miebo.length < 4 && nextMieboGap() !== null && (nextMieboGap() === 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#D97706",
+      fontSize: 13,
+      marginBottom: 12
+    }
+  }, "⏰ Time for your next dose") : /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#2D1B4E",
+      fontSize: 16,
+      fontFamily: "monospace",
+      marginBottom: 12
+    }
+  }, "Next dose in ", Math.floor(nextMieboGap() / 3600000), "h ", Math.floor(nextMieboGap() % 3600000 / 60000), "m")), miebo.length >= 4 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#34D399",
+      fontSize: 13,
+      marginBottom: 12
+    }
+  }, "✓ All 4 doses done for today"), /*#__PURE__*/React.createElement("button", {
+    onClick: logMiebo,
+    disabled: miebo.length >= 4,
+    style: {
+      width: "100%",
+      background: miebo.length >= 4 ? "rgba(45,212,191,0.15)" : "#2DD4BF",
+      color: miebo.length >= 4 ? "rgba(100,60,140,0.4)" : "#fff",
+      border: "none",
+      borderRadius: 8,
+      padding: "11px 0",
+      fontFamily: "'DM Mono',monospace",
+      fontSize: 12,
+      fontWeight: 700,
+      cursor: miebo.length >= 4 ? "default" : "pointer"
+    }
+  }, miebo.length >= 4 ? "DONE FOR TODAY" : `👁️ LOG DOSE ${miebo.length + 1} OF 4`), miebo.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      marginTop: 10,
+      flexWrap: "wrap"
+    }
+  }, miebo.map((t, i) => /*#__PURE__*/React.createElement("span", {
+    key: i,
+    style: {
+      fontSize: 10,
+      color: "rgba(100,60,140,0.4)"
+    }
+  }, i + 1, ": ", new Date(t).toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit"
+  }))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "WEIGHT (OPTIONAL)"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: "rgba(100,60,140,0.2)"
+    }
+  }, "+5 XP · no pressure")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    value: weightInput,
+    onChange: e => setWeightInput(e.target.value),
+    onKeyDown: e => {
+      if (e.key === "Enter") logWeight();
+    },
+    type: "number",
+    placeholder: "lbs",
+    style: {
+      flex: 1,
+      background: "rgba(120,80,160,0.04)",
+      border: "1px solid rgba(120,80,160,0.07)",
+      borderRadius: 8,
+      padding: "10px 14px",
+      color: "#2D1B4E",
+      fontSize: 13,
+      fontFamily: "'DM Mono',monospace"
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: logWeight,
+    style: {
+      background: "rgba(192,132,252,0.18)",
+      color: "#C084FC",
+      border: "1px solid rgba(192,132,252,0.35)",
+      borderRadius: 8,
+      padding: "10px 18px",
+      fontFamily: "'DM Mono',monospace",
+      fontSize: 12,
+      fontWeight: 700,
+      cursor: "pointer"
+    }
+  }, "LOG")), weightLog.length > 1 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 5,
+      alignItems: "flex-end",
+      height: 48
+    }
+  }, weightLog.slice(-14).map((e, i, arr) => {
+    const vals = arr.map(x => x.value),
+      mn = Math.min(...vals),
+      mx = Math.max(...vals),
+      rng = mx - mn || 1;
+    const h = 8 + (e.value - mn) / rng * 38;
+    return /*#__PURE__*/React.createElement("div", {
+      key: e.date,
+      style: {
+        flex: 1,
+        height: h,
+        background: i === arr.length - 1 ? "#C084FC" : "rgba(192,132,252,0.35)",
+        borderRadius: 2
+      }
+    });
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      fontSize: 10,
+      color: "rgba(100,60,140,0.25)",
+      marginTop: 4
+    }
+  }, /*#__PURE__*/React.createElement("span", null, weightLog[Math.max(0, weightLog.length - 14)].value, " lbs"), /*#__PURE__*/React.createElement("span", null, weightLog[weightLog.length - 1].value, " lbs latest")))), morningDone && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(192,132,252,0.09)",
+      border: "1px solid rgba(192,132,252,0.3)",
+      borderRadius: 8,
+      padding: 16,
+      textAlign: "center",
+      marginBottom: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 28,
+      color: "#7C3AED"
+    }
+  }, "MORNING COMPLETE ☀️"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "rgba(80,50,120,0.45)",
+      marginTop: 6
+    }
+  }, "See you tonight."))), active === "roadmap" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      animation: "fadeUp 0.4s ease forwards"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 22
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#C084FC",
+      fontSize: 10,
+      letterSpacing: 3,
+      marginBottom: 4
+    }
+  }, "YOUR JOURNEY"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 40,
+      color: "#2D1B4E",
+      lineHeight: 1
+    }
+  }, "HABIT ROADMAP"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "rgba(100,60,140,0.25)",
+      fontSize: 12,
+      marginTop: 6
+    }
+  }, "Day ", daysIn + 1, " · ", totalCheckIns, " check-ins completed")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 28
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "YOUR LAST 14 DAYS"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4
+    }
+  }, Array.from({
+    length: 14
+  }, (_, i) => {
+    const d = new Date();
+    d.setDate(d.getDate() - (13 - i));
+    const key = d.toISOString().slice(0, 10);
+    const isToday = key === today;
+    const done = db.lastComplete === key || isToday && morningDone;
+    const past = key < today;
+    return /*#__PURE__*/React.createElement("div", {
+      key: key,
+      style: {
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 3
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: "100%",
+        aspectRatio: "1",
+        borderRadius: 4,
+        background: done ? "#C084FC" : past ? "rgba(120,80,160,0.04)" : "rgba(120,80,160,0.08)",
+        border: isToday ? "1px solid #C084FC" : "none",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 10,
+        color: done ? "#FDFBFF" : "rgba(100,60,140,0.2)"
+      }
+    }, done ? "✓" : ""), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 7,
+        color: "rgba(100,60,140,0.2)"
+      }
+    }, d.getDate()));
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 28
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "☀️ MORNING PATH"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative",
+      paddingLeft: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      left: 11,
+      top: 16,
+      bottom: 16,
+      width: 2,
+      background: "rgba(120,80,160,0.06)",
+      borderRadius: 1
+    }
+  }), HABIT_JOURNEY.map((h, i) => {
+    const unlocked = isUnlocked(h);
+    const done = !!mChecked[h.id];
+    const pct = unlockProgress(h) * 100;
+    const isFirst = h.dayFloor === 0;
+    return /*#__PURE__*/React.createElement("div", {
+      key: h.id,
+      style: {
+        display: "flex",
+        gap: 14,
+        marginBottom: 16,
+        alignItems: "flex-start"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "relative",
+        flexShrink: 0,
+        width: 22,
+        height: 22,
+        borderRadius: "50%",
+        background: done ? "#34D399" : unlocked ? "#C084FC" : isFirst ? "#C084FC" : "rgba(120,80,160,0.08)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 11,
+        color: done || unlocked ? "#FDFBFF" : "rgba(100,60,140,0.2)",
+        border: !unlocked && !isFirst ? "1px dashed rgba(120,80,160,0.1)" : "none",
+        zIndex: 1
+      }
+    }, done ? "✓" : unlocked ? h.emoji.slice(0, 1) : "🔒"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        paddingTop: 2
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        marginBottom: 3
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: unlocked ? "#fff" : "rgba(100,60,140,0.3)",
+        fontSize: 13
+      }
+    }, h.emoji, " ", h.label), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 10,
+        color: "#C084FC",
+        marginLeft: "auto"
+      }
+    }, "+", h.xp, " XP")), !unlocked && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        height: 3,
+        background: "rgba(120,80,160,0.06)",
+        borderRadius: 2,
+        overflow: "hidden",
+        marginBottom: 3
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        height: "100%",
+        width: `${pct}%`,
+        background: "rgba(192,132,252,0.55)",
+        borderRadius: 2,
+        transition: "width 0.5s ease"
+      }
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "rgba(100,60,140,0.25)"
+      }
+    }, "Day ", h.dayFloor, " · ", h.checksNeeded, " check-ins needed · ", Math.round(pct), "% there")), unlocked && !done && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "#34D399"
+      }
+    }, "✓ Unlocked · complete in morning tab"), done && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "rgba(100,60,140,0.3)"
+      }
+    }, "Done today")));
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 28
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "🌙 EVENING PATH"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative",
+      paddingLeft: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      left: 11,
+      top: 16,
+      bottom: 16,
+      width: 2,
+      background: "rgba(120,80,160,0.06)",
+      borderRadius: 1
+    }
+  }), EVENING_JOURNEY.map(h => {
+    const unlocked = isUnlocked(h);
+    const done = !!eChecked[h.id];
+    const pct = unlockProgress(h) * 100;
+    return /*#__PURE__*/React.createElement("div", {
+      key: h.id,
+      style: {
+        display: "flex",
+        gap: 14,
+        marginBottom: 16,
+        alignItems: "flex-start"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "relative",
+        flexShrink: 0,
+        width: 22,
+        height: 22,
+        borderRadius: "50%",
+        background: done ? "#34D399" : unlocked ? "#A78BFA" : "rgba(120,80,160,0.08)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 11,
+        color: done || unlocked ? "#FDFBFF" : "rgba(100,60,140,0.2)",
+        border: !unlocked ? "1px dashed rgba(120,80,160,0.1)" : "none",
+        zIndex: 1
+      }
+    }, done ? "✓" : unlocked ? h.emoji.slice(0, 1) : "🔒"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        paddingTop: 2
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        marginBottom: 3
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: unlocked ? "#fff" : "rgba(100,60,140,0.3)",
+        fontSize: 13
+      }
+    }, h.emoji, " ", h.label), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 10,
+        color: "#A78BFA",
+        marginLeft: "auto"
+      }
+    }, "+", h.xp, " XP")), !unlocked && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        height: 3,
+        background: "rgba(120,80,160,0.06)",
+        borderRadius: 2,
+        overflow: "hidden",
+        marginBottom: 3
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        height: "100%",
+        width: `${pct}%`,
+        background: "rgba(167,139,250,0.6)",
+        borderRadius: 2
+      }
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "rgba(100,60,140,0.25)"
+      }
+    }, "Day ", h.dayFloor, " · ", h.checksNeeded, " check-ins · ", Math.round(pct), "% there")), unlocked && !done && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "#34D399"
+      }
+    }, "✓ Unlocked · complete in evening tab"), done && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "rgba(100,60,140,0.3)"
+      }
+    }, "Done tonight")));
+  }))), streak >= 3 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(245,158,11,0.08)",
+      border: "1px solid rgba(245,158,11,0.2)",
+      borderRadius: 8,
+      padding: 16,
+      textAlign: "center",
+      marginBottom: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 26,
+      marginBottom: 4
+    }
+  }, "🔥"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 24,
+      color: "#D97706"
+    }
+  }, streak, " DAY STREAK"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "rgba(100,60,140,0.3)",
+      marginTop: 4
+    }
+  }, "Streak bonus: +", streak * 5, " XP on completion"))), active === "hydration" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      animation: "fadeUp 0.4s ease forwards"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 20
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#2DD4BF",
+      fontSize: 10,
+      letterSpacing: 3,
+      marginBottom: 4
+    }
+  }, "HYDRATION"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 40,
+      color: "#2D1B4E",
+      lineHeight: 1
+    }
+  }, "STAY HYDRATED"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "rgba(100,60,140,0.25)",
+      fontSize: 12,
+      marginTop: 6
+    }
+  }, Object.values(hydChecked).filter(Boolean).length, " of ", HYDRATION_ITEMS.length, " sources today")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(45,212,191,0.08)",
+      border: "1px solid rgba(45,212,191,0.25)",
+      borderRadius: 10,
+      padding: 16,
+      marginBottom: 22,
+      display: "flex",
+      alignItems: "center",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 22
+    }
+  }, "💧"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: "#2DD4BF",
+      letterSpacing: 2,
+      marginBottom: 4
+    }
+  }, "GENTLE REMINDER"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#2D1B4E",
+      fontSize: 13,
+      lineHeight: 1.4
+    }
+  }, HYDRATION_NUDGES[nudgeIdx])), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setNudgeIdx(i => (i + 1) % HYDRATION_NUDGES.length),
+    style: {
+      background: "rgba(45,212,191,0.12)",
+      color: "#2DD4BF",
+      border: "1px solid rgba(45,212,191,0.25)",
+      borderRadius: 6,
+      padding: "6px 10px",
+      fontSize: 10,
+      fontFamily: "'DM Mono',monospace",
+      cursor: "pointer",
+      whiteSpace: "nowrap"
+    }
+  }, "next tip")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "HYDRATION HELPERS · +3 XP EACH"), HYDRATION_ITEMS.map(item => /*#__PURE__*/React.createElement("div", {
+    key: item.id,
+    onClick: () => toggleHyd(item.id),
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      padding: "10px 4px",
+      borderBottom: "1px solid rgba(120,80,160,0.04)",
+      cursor: "pointer",
+      opacity: hydChecked[item.id] ? 0.42 : 1,
+      transition: "opacity 0.2s"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 22,
+      height: 22,
+      borderRadius: 5,
+      flexShrink: 0,
+      border: hydChecked[item.id] ? "none" : "1.5px solid rgba(100,60,140,0.15)",
+      background: hydChecked[item.id] ? "#2DD4BF" : "transparent",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 11,
+      color: "#fff",
+      transition: "all 0.2s"
+    }
+  }, hydChecked[item.id] ? "✓" : ""), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 15
+    }
+  }, item.emoji), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#2D1B4E",
+      fontSize: 13,
+      textDecoration: hydChecked[item.id] ? "line-through" : "none"
+    }
+  }, item.label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "rgba(100,60,140,0.3)",
+      fontSize: 10,
+      marginTop: 1
+    }
+  }, item.note)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: "#2DD4BF"
+    }
+  }, "+3")))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 22
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "DRY MOUTH LEVEL (1–10)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 5,
+      flexWrap: "wrap"
+    }
+  }, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => /*#__PURE__*/React.createElement("button", {
+    key: n,
+    onClick: () => {
+      setDryMouth(n);
+      saveHydMeta();
+    },
+    style: {
+      width: 38,
+      height: 38,
+      borderRadius: 7,
+      border: "none",
+      cursor: "pointer",
+      background: dryMouth === n ? n <= 3 ? "#34D399" : n <= 6 ? "#F59E0B" : "#F87171" : "rgba(120,80,160,0.06)",
+      color: dryMouth === n ? "#FDFBFF" : "rgba(80,50,120,0.5)",
+      fontFamily: "'DM Mono',monospace",
+      fontSize: 13,
+      fontWeight: 700,
+      transition: "all 0.2s"
+    }
+  }, n))), dryMouth >= 7 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10,
+      padding: "10px 14px",
+      background: "rgba(245,158,11,0.1)",
+      border: "1px solid rgba(245,158,11,0.22)",
+      borderRadius: 8,
+      fontSize: 12,
+      color: "#F59E0B"
+    }
+  }, "Try aloe vera juice or a few sips of water.")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 22
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "CAFFEINE / SWEET DRINKS"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setCafCount(c => Math.max(0, c - 1));
+      saveHydMeta();
+    },
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 8,
+      background: "rgba(120,80,160,0.06)",
+      border: "none",
+      color: "#2D1B4E",
+      fontSize: 18,
+      cursor: "pointer"
+    }
+  }, "−"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      minWidth: 56
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 32,
+      color: cafCount >= 3 ? "#F59E0B" : "#fff"
+    }
+  }, cafCount), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: "rgba(100,60,140,0.3)"
+    }
+  }, "drinks")), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setCafCount(c => c + 1);
+      saveHydMeta();
+    },
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 8,
+      background: "rgba(120,80,160,0.06)",
+      border: "none",
+      color: "#2D1B4E",
+      fontSize: 18,
+      cursor: "pointer"
+    }
+  }, "+"), cafCount >= 2 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      fontSize: 11,
+      color: "rgba(80,50,120,0.45)",
+      lineHeight: 1.5
+    }
+  }, "Before the next one, try a few sips of water first."))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "IC SYMPTOMS TODAY"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setIcFlare(!icFlare);
+      saveHydMeta();
+    },
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      background: icFlare ? "rgba(248,113,113,0.12)" : "rgba(120,80,160,0.04)",
+      border: `1px solid ${icFlare ? "rgba(248,113,113,0.35)" : "rgba(120,80,160,0.08)"}`,
+      borderRadius: 8,
+      padding: "12px 14px",
+      cursor: "pointer",
+      width: "100%",
+      textAlign: "left"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 18,
+      height: 18,
+      borderRadius: 4,
+      background: icFlare ? "#F87171" : "transparent",
+      border: icFlare ? "none" : "1.5px solid rgba(100,60,140,0.2)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 10,
+      color: "#2D1B4E"
+    }
+  }, icFlare ? "✓" : ""), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#2D1B4E",
+      fontSize: 13
+    }
+  }, "Experiencing a flare today"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "rgba(100,60,140,0.3)",
+      fontSize: 10,
+      marginTop: 2
+    }
+  }, "Logged for pattern tracking · no pressure today"))), icFlare && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10,
+      padding: "10px 14px",
+      background: "rgba(248,113,113,0.08)",
+      border: "1px solid rgba(248,113,113,0.18)",
+      borderRadius: 8,
+      fontSize: 12,
+      color: "rgba(80,50,120,0.6)",
+      lineHeight: 1.6
+    }
+  }, "Be gentle today. Small sips only. Aloe vera juice may help.")), hydLog.length > 1 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "DRY MOUTH TREND · 7 DAYS"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 5,
+      alignItems: "flex-end",
+      height: 48
+    }
+  }, hydLog.slice(-7).map(e => {
+    const h = e.dryMouth ? e.dryMouth / 10 * 44 + 4 : 4;
+    const col = e.dryMouth <= 3 ? "#34D399" : e.dryMouth <= 6 ? "#F59E0B" : "#F87171";
+    return /*#__PURE__*/React.createElement("div", {
+      key: e.date,
+      style: {
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 3
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: "100%",
+        height: h,
+        background: e.dryMouth ? col : "rgba(120,80,160,0.06)",
+        borderRadius: 2
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 7,
+        color: "rgba(100,60,140,0.2)"
+      }
+    }, e.date.slice(5)));
+  })))), active === "evening" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      animation: "fadeUp 0.4s ease forwards"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 20
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#A78BFA",
+      fontSize: 10,
+      letterSpacing: 3,
+      marginBottom: 4
+    }
+  }, "WIND DOWN · 10:00 PM"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 40,
+      color: "#2D1B4E",
+      lineHeight: 1
+    }
+  }, "GOOD EVENING"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "rgba(100,60,140,0.25)",
+      fontSize: 12,
+      marginTop: 6
+    }
+  }, puzzleUnlocked ? "🧩 puzzles unlocked" : "complete routine to unlock puzzles")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "EVENING ROUTINE"), EVENING_JOURNEY.map(h => {
+    if (!isUnlocked(h)) return null;
+    const done = !!eChecked[h.id];
+    return /*#__PURE__*/React.createElement("div", {
+      key: h.id,
+      style: {
+        borderBottom: "1px solid rgba(120,80,160,0.04)",
+        padding: "8px 4px 12px",
+        opacity: done ? 0.38 : 1,
+        transition: "opacity 0.3s"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 12
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      className: "habit-check",
+      onClick: () => checkHabit(EVENING_JOURNEY, eChecked, setEChecked, h.id),
+      style: {
+        width: 26,
+        height: 26,
+        borderRadius: 6,
+        flexShrink: 0,
+        border: done ? "none" : "1.5px solid rgba(100,60,140,0.15)",
+        background: done ? "#34D399" : "transparent",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 13,
+        color: "#FDFBFF"
+      }
+    }, done ? "✓" : ""), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 15
+      }
+    }, h.emoji), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#2D1B4E",
+        fontSize: 13,
+        flex: 1,
+        textDecoration: done ? "line-through" : "none"
+      }
+    }, h.label), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 10,
+        color: "#A78BFA"
+      }
+    }, "+", h.xp)), h.duration > 0 && !done && /*#__PURE__*/React.createElement("div", {
+      style: {
+        paddingLeft: 38
+      }
+    }, /*#__PURE__*/React.createElement(TimerBlock, {
+      habit: h,
+      onComplete: () => checkHabit(EVENING_JOURNEY, eChecked, setEChecked, h.id)
+    })));
+  }), customEvening.map(item => {
+    const done = !!customChecked[item.id];
+    return /*#__PURE__*/React.createElement("div", {
+      key: item.id,
+      style: {
+        borderBottom: "1px solid rgba(120,80,160,0.04)",
+        padding: "8px 4px 12px",
+        opacity: done ? 0.38 : 1,
+        transition: "opacity 0.3s"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 12
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      className: "habit-check",
+      onClick: () => toggleCustomEvening(item.id),
+      style: {
+        width: 26,
+        height: 26,
+        borderRadius: 6,
+        flexShrink: 0,
+        border: done ? "none" : "1.5px solid rgba(100,60,140,0.15)",
+        background: done ? "#34D399" : "transparent",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 13,
+        color: "#FDFBFF"
+      }
+    }, done ? "✓" : ""), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 15
+      }
+    }, "✨"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#2D1B4E",
+        fontSize: 13,
+        flex: 1,
+        textDecoration: done ? "line-through" : "none"
+      }
+    }, item.label), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 10,
+        color: "#A78BFA"
+      }
+    }, "+10")));
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginTop: 10
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    value: newCustom,
+    onChange: e => setNewCustom(e.target.value),
+    onKeyDown: e => {
+      if (e.key === "Enter") addCustomEvening();
+    },
+    placeholder: "Remembered something else? Add it...",
+    style: {
+      flex: 1,
+      background: "rgba(120,80,160,0.04)",
+      border: "1px solid rgba(120,80,160,0.08)",
+      borderRadius: 8,
+      padding: "9px 12px",
+      color: "#2D1B4E",
+      fontSize: 12,
+      fontFamily: "'DM Mono',monospace"
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: addCustomEvening,
+    style: {
+      background: "#A78BFA",
+      color: "#fff",
+      border: "none",
+      borderRadius: 8,
+      padding: "9px 14px",
+      fontSize: 16,
+      cursor: "pointer",
+      fontWeight: 700,
+      lineHeight: 1
+    }
+  }, "+"))), availEvening.some(h => h.id === "gratitude") && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 22
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "GRATITUDE JOURNAL"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: gratXp ? "#34D399" : "#A78BFA"
+    }
+  }, gratXp ? "✓ +30 XP" : "+30 XP")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "rgba(80,50,120,0.5)",
+      marginBottom: 8,
+      fontStyle: "italic"
+    }
+  }, gratPrompt), /*#__PURE__*/React.createElement("textarea", {
+    value: gratText,
+    onChange: e => setGratText(e.target.value),
+    onBlur: () => {
+      if (!gratXp && gratText.trim().length > 20) {
+        setGratXp(true);
+        awardXP(30);
+      }
+    },
+    placeholder: "1. \n2. \n3.",
+    rows: 4,
+    style: {
+      width: "100%",
+      background: "rgba(120,80,160,0.04)",
+      border: `1px solid ${gratXp ? "rgba(52,211,153,0.25)" : "rgba(120,80,160,0.07)"}`,
+      borderRadius: 8,
+      padding: 14,
+      color: "#2D1B4E",
+      fontSize: 13,
+      fontFamily: "'DM Mono',monospace",
+      lineHeight: 1.7
+    }
+  })), availEvening.some(h => h.id === "todo") && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "TOMORROW'S TO-DO"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 10,
+      color: todoXp ? "#34D399" : "#A78BFA"
+    }
+  }, todoXp ? "✓ +15 XP" : "+15 XP")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    value: newTodo,
+    onChange: e => setNewTodo(e.target.value),
+    onKeyDown: e => {
+      if (e.key === "Enter") {
+        if (!newTodo.trim()) return;
+        setTodos(t => [...t, {
+          id: Date.now(),
+          text: newTodo.trim(),
+          done: false
+        }]);
+        setNewTodo("");
+        if (!todoXp) {
+          setTodoXp(true);
+          awardXP(15);
+        }
+      }
+    },
+    placeholder: "Add a task for tomorrow...",
+    style: {
+      flex: 1,
+      background: "rgba(120,80,160,0.04)",
+      border: "1px solid rgba(120,80,160,0.07)",
+      borderRadius: 8,
+      padding: "10px 14px",
+      color: "#2D1B4E",
+      fontSize: 13,
+      fontFamily: "'DM Mono',monospace"
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      if (!newTodo.trim()) return;
+      setTodos(t => [...t, {
+        id: Date.now(),
+        text: newTodo.trim(),
+        done: false
+      }]);
+      setNewTodo("");
+      if (!todoXp) {
+        setTodoXp(true);
+        awardXP(15);
+      }
+    },
+    style: {
+      background: "#A78BFA",
+      color: "#fff",
+      border: "none",
+      borderRadius: 8,
+      padding: "10px 16px",
+      fontSize: 18,
+      cursor: "pointer",
+      fontWeight: 700,
+      lineHeight: 1
+    }
+  }, "+")), todos.map(todo => /*#__PURE__*/React.createElement("div", {
+    key: todo.id,
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      padding: "9px 4px",
+      borderBottom: "1px solid rgba(120,80,160,0.04)",
+      opacity: todo.done ? 0.38 : 1
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: () => setTodos(t => t.map(x => x.id === todo.id ? {
+      ...x,
+      done: !x.done
+    } : x)),
+    style: {
+      width: 18,
+      height: 18,
+      borderRadius: 4,
+      flexShrink: 0,
+      border: todo.done ? "none" : "1.5px solid rgba(100,60,140,0.15)",
+      background: todo.done ? "#34D399" : "transparent",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 10,
+      color: "#fff",
+      cursor: "pointer"
+    }
+  }, todo.done ? "✓" : ""), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#2D1B4E",
+      fontSize: 13,
+      flex: 1,
+      textDecoration: todo.done ? "line-through" : "none",
+      cursor: "pointer"
+    },
+    onClick: () => setTodos(t => t.map(x => x.id === todo.id ? {
+      ...x,
+      done: !x.done
+    } : x))
+  }, todo.text)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: SL
+  }, "🧩 PUZZLE TIME"), !puzzleUnlocked ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(120,80,160,0.03)",
+      border: "1px dashed rgba(120,80,160,0.1)",
+      borderRadius: 10,
+      padding: 24,
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 32,
+      marginBottom: 8,
+      filter: "grayscale(1)",
+      opacity: 0.3
+    }
+  }, "🧩"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 20,
+      color: "rgba(100,60,140,0.35)"
+    }
+  }, "LOCKED"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "rgba(100,60,140,0.2)",
+      marginTop: 6
+    }
+  }, "Complete your evening routine to unlock.")) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(167,139,250,0.08)",
+      border: "1px solid rgba(167,139,250,0.3)",
+      borderRadius: 10,
+      padding: 18
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 20,
+      color: "#7C3AED",
+      marginBottom: 12
+    }
+  }, "YOU EARNED THIS 🧩"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8
+    }
+  }, [{
+    name: "NYT Mini Crossword",
+    emoji: "📰",
+    url: "https://www.nytimes.com/crosswords/game/mini"
+  }, {
+    name: "Wordle",
+    emoji: "🟩",
+    url: "https://www.nytimes.com/games/wordle/index.html"
+  }, {
+    name: "Connections",
+    emoji: "🔗",
+    url: "https://www.nytimes.com/games/connections"
+  }, {
+    name: "Spelling Bee",
+    emoji: "🐝",
+    url: "https://www.nytimes.com/puzzles/spelling-bee"
+  }].map(p => /*#__PURE__*/React.createElement("a", {
+    key: p.name,
+    href: p.url,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      padding: "10px 12px",
+      background: "rgba(167,139,250,0.1)",
+      borderRadius: 8,
+      textDecoration: "none"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 16
+    }
+  }, p.emoji), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#2D1B4E",
+      fontSize: 13,
+      fontFamily: "'DM Mono',monospace"
+    }
+  }, p.name), /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: "auto",
+      color: "rgba(100,60,140,0.3)",
+      fontSize: 11
+    }
+  }, "→")))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 12,
+      padding: "10px 12px",
+      background: "rgba(248,113,113,0.08)",
+      border: "1px solid rgba(248,113,113,0.18)",
+      borderRadius: 8,
+      fontSize: 11,
+      color: "rgba(80,50,120,0.5)",
+      textAlign: "center"
+    }
+  }, "🛑 Hard stop: 11:00 PM")))), active === "shop" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      animation: "fadeUp 0.4s ease forwards"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 20
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#34D399",
+      fontSize: 10,
+      letterSpacing: 3,
+      marginBottom: 4
+    }
+  }, "SHOPPING LIST"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 40,
+      color: "#2D1B4E",
+      lineHeight: 1
+    }
+  }, "WHAT DO YOU NEED?"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "rgba(100,60,140,0.25)",
+      fontSize: 12,
+      marginTop: 6
+    }
+  }, shopItems.filter(x => !x.done).length, " items left · ", shopItems.filter(x => x.done).length, " done")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 22
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    value: shopInput,
+    onChange: e => setShopInput(e.target.value),
+    onKeyDown: e => {
+      if (e.key === "Enter") addShopItem();
+    },
+    placeholder: "Add anything...",
+    style: {
+      flex: 1,
+      background: "rgba(120,80,160,0.04)",
+      border: "1px solid rgba(120,80,160,0.09)",
+      borderRadius: 8,
+      padding: "11px 14px",
+      color: "#2D1B4E",
+      fontSize: 13,
+      fontFamily: "'DM Mono',monospace"
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: addShopItem,
+    style: {
+      background: "#34D399",
+      color: "#fff",
+      border: "none",
+      borderRadius: 8,
+      padding: "11px 16px",
+      fontSize: 20,
+      cursor: "pointer",
+      fontWeight: 700,
+      lineHeight: 1
+    }
+  }, "+")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 5,
+      flexWrap: "wrap"
+    }
+  }, SHOP_CATS.map(c => /*#__PURE__*/React.createElement("button", {
+    key: c.id,
+    onClick: () => setShopCat(c.id),
+    style: {
+      padding: "4px 10px",
+      borderRadius: 20,
+      border: "none",
+      cursor: "pointer",
+      fontSize: 11,
+      fontFamily: "'DM Mono',monospace",
+      background: shopCat === c.id ? "#34D399" : "rgba(120,80,160,0.06)",
+      color: shopCat === c.id ? "#FDFBFF" : "rgba(80,50,120,0.5)",
+      transition: "all 0.15s"
+    }
+  }, c.label)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 5,
+      marginBottom: 18
+    }
+  }, ["all", "todo", "done"].map(f => /*#__PURE__*/React.createElement("button", {
+    key: f,
+    onClick: () => setShopFilter(f),
+    style: {
+      flex: 1,
+      padding: "6px 0",
+      borderRadius: 6,
+      border: "none",
+      cursor: "pointer",
+      fontSize: 11,
+      fontFamily: "'DM Mono',monospace",
+      background: shopFilter === f ? "rgba(74,222,128,0.15)" : "rgba(120,80,160,0.04)",
+      color: shopFilter === f ? "#34D399" : "rgba(100,60,140,0.3)",
+      transition: "all 0.15s"
+    }
+  }, f === "all" ? "ALL" : f === "todo" ? "TO GET" : "DONE"))), SHOP_CATS.map(cat => {
+    const items = shopItems.filter(x => x.cat === cat.id && (shopFilter === "all" || shopFilter === "todo" && !x.done || shopFilter === "done" && x.done));
+    if (!items.length) return null;
+    return /*#__PURE__*/React.createElement("div", {
+      key: cat.id,
+      style: {
+        marginBottom: 20
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 11,
+        color: "rgba(100,60,140,0.3)",
+        letterSpacing: 2,
+        marginBottom: 10
+      }
+    }, cat.label), items.map(item => /*#__PURE__*/React.createElement("div", {
+      key: item.id,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        padding: "10px 4px",
+        borderBottom: "1px solid rgba(120,80,160,0.04)",
+        opacity: item.done ? 0.38 : 1,
+        transition: "opacity 0.2s"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      onClick: () => toggleShopItem(item.id),
+      style: {
+        width: 22,
+        height: 22,
+        borderRadius: 5,
+        flexShrink: 0,
+        border: item.done ? "none" : "1.5px solid rgba(100,60,140,0.15)",
+        background: item.done ? "#34D399" : "transparent",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 11,
+        color: "#FDFBFF",
+        cursor: "pointer",
+        transition: "all 0.2s"
+      }
+    }, item.done ? "✓" : ""), /*#__PURE__*/React.createElement("span", {
+      onClick: () => toggleShopItem(item.id),
+      style: {
+        color: "#2D1B4E",
+        fontSize: 13,
+        flex: 1,
+        textDecoration: item.done ? "line-through" : "none",
+        cursor: "pointer"
+      }
+    }, item.text), /*#__PURE__*/React.createElement("button", {
+      onClick: () => deleteShopItem(item.id),
+      style: {
+        background: "none",
+        border: "none",
+        color: "rgba(100,60,140,0.2)",
+        fontSize: 16,
+        cursor: "pointer",
+        padding: "0 4px",
+        lineHeight: 1
+      }
+    }, "×"))));
+  }), shopItems.length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: "40px 0",
+      color: "rgba(100,60,140,0.15)",
+      fontSize: 13
+    }
+  }, "Nothing on the list yet.", /*#__PURE__*/React.createElement("br", null), "Add something above."), shopItems.some(x => x.done) && /*#__PURE__*/React.createElement("button", {
+    onClick: clearDoneShop,
+    style: {
+      width: "100%",
+      padding: "12px 0",
+      background: "rgba(120,80,160,0.04)",
+      border: "1px solid rgba(120,80,160,0.08)",
+      borderRadius: 8,
+      color: "rgba(100,60,140,0.3)",
+      fontFamily: "'DM Mono',monospace",
+      fontSize: 12,
+      cursor: "pointer",
+      marginTop: 8
+    }
+  }, "Clear done items")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      fontSize: 10,
+      color: "rgba(120,80,160,0.08)",
+      letterSpacing: 3,
+      marginTop: 32
+    }
+  }, "YOU SHOWED UP TODAY.")), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setParalysisStep(PARALYSIS[Math.floor(Math.random() * PARALYSIS.length)]);
+      setShowParalysis(true);
+    },
+    style: {
+      position: "fixed",
+      bottom: 24,
+      right: 20,
+      zIndex: 180,
+      width: 54,
+      height: 54,
+      borderRadius: "50%",
+      background: "linear-gradient(135deg,#C084FC,#A78BFA)",
+      border: "none",
+      cursor: "pointer",
+      fontSize: 22,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.5)"
+    }
+  }, "🆘"));
 }
