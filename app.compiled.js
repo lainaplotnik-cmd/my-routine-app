@@ -759,6 +759,246 @@ function TopBar({
   }, t.sub))))));
 }
 
+// ── HANDWRITING SCAN ─────────────────────────────────────────
+function HandwritingScan({
+  previousText,
+  xpLabel,
+  onComplete,
+  onClose
+}) {
+  const [step, setStep] = useState("pick");
+  const [scannedText, setScannedText] = useState("");
+  const [error, setError] = useState(null);
+  const fileRef = useRef(null);
+  async function scanImage(base64) {
+    setError(null);
+    setStep("scanning");
+    try {
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-6",
+          max_tokens: 1000,
+          messages: [{
+            role: "user",
+            content: [{
+              type: "image",
+              source: {
+                type: "base64",
+                media_type: "image/jpeg",
+                data: base64
+              }
+            }, {
+              type: "text",
+              text: "This is a handwritten journal entry. Transcribe exactly what is written, preserving the original text as closely as possible. Return only the transcribed text, nothing else."
+            }]
+          }]
+        })
+      });
+      const data = await response.json();
+      const text = data.content?.find(b => b.type === "text")?.text || "";
+      setScannedText(text);
+      setStep("done");
+    } catch (e) {
+      setError("Couldn't read the image. Try better lighting.");
+      setStep("pick");
+    }
+  }
+  function handleFile(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      scanImage(ev.target.result.split(",")[1]);
+    };
+    reader.readAsDataURL(file);
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    onClick: onClose,
+    style: {
+      position: "fixed",
+      inset: 0,
+      zIndex: 280,
+      background: "rgba(80,50,120,0.6)",
+      display: "flex",
+      alignItems: "flex-end",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    onClick: e => e.stopPropagation(),
+    style: {
+      background: "#FDF8FF",
+      borderRadius: "20px 20px 0 0",
+      padding: 24,
+      width: "100%",
+      maxWidth: 520,
+      maxHeight: "85vh",
+      overflowY: "auto"
+    }
+  }, step === "pick" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 22,
+      color: "#2D1B4E",
+      marginBottom: 4
+    }
+  }, "SCAN YOUR JOURNAL"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "rgba(100,60,140,0.5)",
+      marginBottom: previousText ? 12 : 20,
+      lineHeight: 1.6
+    }
+  }, "Point your camera at what you wrote. Claude will read your handwriting."), previousText && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(192,132,252,0.06)",
+      border: "1px solid rgba(192,132,252,0.12)",
+      borderRadius: 8,
+      padding: 12,
+      marginBottom: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: "#C084FC",
+      letterSpacing: 2,
+      marginBottom: 5
+    }
+  }, "LAST TIME YOU WROTE"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "rgba(100,60,140,0.5)",
+      lineHeight: 1.6,
+      fontStyle: "italic"
+    }
+  }, previousText.slice(0, 180), previousText.length > 180 ? "..." : "")), error && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(248,113,113,0.08)",
+      border: "1px solid rgba(248,113,113,0.2)",
+      borderRadius: 8,
+      padding: "10px 14px",
+      fontSize: 12,
+      color: "#DC2626",
+      marginBottom: 12
+    }
+  }, error), /*#__PURE__*/React.createElement("input", {
+    ref: fileRef,
+    type: "file",
+    accept: "image/*",
+    capture: "environment",
+    onChange: handleFile,
+    style: {
+      display: "none"
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: () => fileRef.current?.click(),
+    style: {
+      width: "100%",
+      background: "#C084FC",
+      border: "none",
+      borderRadius: 12,
+      padding: "15px 0",
+      color: "#fff",
+      fontSize: 14,
+      fontWeight: 700,
+      cursor: "pointer",
+      marginBottom: 10
+    }
+  }, "📷 Scan my journal"), /*#__PURE__*/React.createElement("button", {
+    onClick: onClose,
+    style: {
+      width: "100%",
+      background: "none",
+      border: "none",
+      color: "rgba(100,60,140,0.4)",
+      fontSize: 12,
+      cursor: "pointer",
+      padding: "8px 0"
+    }
+  }, "Skip for now")), step === "scanning" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: "40px 0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 36,
+      marginBottom: 12
+    }
+  }, "📖"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 22,
+      color: "#2D1B4E"
+    }
+  }, "READING YOUR WRITING...")), step === "done" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Bebas Neue',sans-serif",
+      fontSize: 22,
+      color: "#2D1B4E",
+      marginBottom: 6
+    }
+  }, "LOOKS GOOD?"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "rgba(100,60,140,0.5)",
+      marginBottom: 12
+    }
+  }, "Edit anything that didn't scan correctly."), /*#__PURE__*/React.createElement("textarea", {
+    value: scannedText,
+    onChange: e => setScannedText(e.target.value),
+    rows: 7,
+    style: {
+      width: "100%",
+      background: "rgba(120,80,160,0.04)",
+      border: "1px solid rgba(192,132,252,0.2)",
+      borderRadius: 10,
+      padding: 14,
+      color: "#2D1B4E",
+      fontSize: 13,
+      fontFamily: "'DM Mono',monospace",
+      lineHeight: 1.7,
+      marginBottom: 14
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setStep("pick"),
+    style: {
+      flex: 1,
+      background: "rgba(120,80,160,0.06)",
+      border: "none",
+      borderRadius: 10,
+      padding: "12px 0",
+      color: "rgba(100,60,140,0.5)",
+      fontSize: 13,
+      cursor: "pointer"
+    }
+  }, "Rescan"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      onComplete(scannedText);
+      onClose();
+    },
+    style: {
+      flex: 2,
+      background: "#C084FC",
+      border: "none",
+      borderRadius: 10,
+      padding: "12px 0",
+      color: "#fff",
+      fontSize: 13,
+      fontWeight: 700,
+      cursor: "pointer"
+    }
+  }, "Save ", xpLabel)))));
+}
+
 // ── MAIN ──────────────────────────────────────────────────────
 function App() {
   const [db, setDb] = useState(load);
@@ -776,6 +1016,13 @@ function App() {
   const [mChecked, setMChecked] = useState({});
   const [manifestText, setManifestText] = useState("");
   const [manifestXp, setManifestXp] = useState(false);
+  const [showManifestScan, setShowManifestScan] = useState(false);
+  const [lastManifestText, setLastManifestText] = useState(() => load().lastManifestText || "");
+
+  // Big Intention — set once, persists
+  const [bigIntention, setBigIntention] = useState(() => load().bigIntention || "");
+  const [editingBigIntention, setEditingBigIntention] = useState(false);
+  const [bigIntentionDraft, setBigIntentionDraft] = useState("");
 
   // Evening
   const [eChecked, setEChecked] = useState({});
@@ -784,6 +1031,8 @@ function App() {
   const [customChecked, setCustomChecked] = useState({});
   const [gratText, setGratText] = useState("");
   const [gratXp, setGratXp] = useState(false);
+  const [showGratScan, setShowGratScan] = useState(false);
+  const [lastGratText, setLastGratText] = useState(() => load().lastGratText || "");
   const [todoXp, setTodoXp] = useState(false);
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
@@ -1512,6 +1761,104 @@ function App() {
     }
   }, "Day ", daysIn + 1, " · ", availMorning.filter(h => mChecked[h.id]).length, "/", availMorning.length, " done")), /*#__PURE__*/React.createElement("div", {
     style: {
+      background: "linear-gradient(135deg,rgba(192,132,252,0.1),rgba(167,139,250,0.06))",
+      border: "1px solid rgba(192,132,252,0.22)",
+      borderRadius: 10,
+      padding: 14,
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: "#C084FC",
+      letterSpacing: 2
+    }
+  }, "🌟 BIG INTENTION"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setBigIntentionDraft(bigIntention);
+      setEditingBigIntention(true);
+    },
+    style: {
+      background: "none",
+      border: "none",
+      color: "rgba(192,132,252,0.5)",
+      fontSize: 10,
+      cursor: "pointer",
+      textDecoration: "underline",
+      padding: 0
+    }
+  }, bigIntention ? "edit" : "set it")), editingBigIntention ? /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("textarea", {
+    value: bigIntentionDraft,
+    onChange: e => setBigIntentionDraft(e.target.value),
+    placeholder: "I am landing my dream job. Write it like it's already true.",
+    rows: 2,
+    style: {
+      width: "100%",
+      background: "rgba(255,255,255,0.5)",
+      border: "1px solid rgba(192,132,252,0.25)",
+      borderRadius: 8,
+      padding: 10,
+      color: "#2D1B4E",
+      fontSize: 13,
+      fontFamily: "'DM Mono',monospace",
+      lineHeight: 1.6,
+      marginBottom: 8
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setEditingBigIntention(false),
+    style: {
+      flex: 1,
+      background: "rgba(120,80,160,0.06)",
+      border: "none",
+      borderRadius: 7,
+      padding: "8px 0",
+      color: "rgba(100,60,140,0.5)",
+      fontSize: 12,
+      cursor: "pointer"
+    }
+  }, "Cancel"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      const u = {
+        ...load(),
+        bigIntention: bigIntentionDraft
+      };
+      save(u);
+      setBigIntention(bigIntentionDraft);
+      setEditingBigIntention(false);
+    },
+    style: {
+      flex: 2,
+      background: "#C084FC",
+      border: "none",
+      borderRadius: 7,
+      padding: "8px 0",
+      color: "#fff",
+      fontSize: 12,
+      fontWeight: 700,
+      cursor: "pointer"
+    }
+  }, "Save"))) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "#2D1B4E",
+      fontSize: 14,
+      lineHeight: 1.5,
+      fontStyle: bigIntention ? "normal" : "italic",
+      color: bigIntention ? "#2D1B4E" : "rgba(100,60,140,0.3)"
+    }
+  }, bigIntention || "Tap 'set it' to add your north star...")), /*#__PURE__*/React.createElement("div", {
+    style: {
       background: "rgba(192,132,252,0.08)",
       border: "1px solid rgba(192,132,252,0.2)",
       borderRadius: 8,
@@ -1552,31 +1899,114 @@ function App() {
     style: {
       fontSize: 12,
       color: "rgba(80,50,120,0.5)",
-      marginBottom: 8,
+      marginBottom: 12,
       fontStyle: "italic"
     }
-  }, manifestPrompt), /*#__PURE__*/React.createElement("textarea", {
-    value: manifestText,
-    onChange: e => setManifestText(e.target.value),
-    onBlur: () => {
-      if (!manifestXp && manifestText.trim().length > 40) {
+  }, manifestPrompt), manifestText ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(192,132,252,0.05)",
+      border: "1px solid rgba(52,211,153,0.25)",
+      borderRadius: 10,
+      padding: 14,
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: "#2D1B4E",
+      lineHeight: 1.7,
+      whiteSpace: "pre-wrap"
+    }
+  }, manifestText), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowManifestScan(true),
+    style: {
+      marginTop: 10,
+      background: "none",
+      border: "none",
+      color: "#C084FC",
+      fontSize: 11,
+      cursor: "pointer",
+      textDecoration: "underline",
+      padding: 0
+    }
+  }, "Rescan")) : /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowManifestScan(true),
+    style: {
+      width: "100%",
+      background: "rgba(192,132,252,0.07)",
+      border: "1px dashed rgba(192,132,252,0.35)",
+      borderRadius: 10,
+      padding: "18px 0",
+      color: "#C084FC",
+      fontSize: 13,
+      cursor: "pointer",
+      fontFamily: "'DM Mono',monospace",
+      marginBottom: 8
+    }
+  }, "📷 Scan my journal"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      fontSize: 11,
+      color: "rgba(100,60,140,0.35)"
+    }
+  }, "Wrote it but don't have time to scan? ", /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setManifestText("scan later");
+    },
+    style: {
+      background: "none",
+      border: "none",
+      color: "rgba(192,132,252,0.5)",
+      fontSize: 11,
+      cursor: "pointer",
+      textDecoration: "underline",
+      padding: 0
+    }
+  }, "Mark as scan later"))), manifestText === "scan later" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "rgba(251,191,36,0.07)",
+      border: "1px solid rgba(251,191,36,0.2)",
+      borderRadius: 8,
+      padding: 12,
+      marginBottom: 8,
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#92400E"
+    }
+  }, "📷 Scan it when you're ready"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowManifestScan(true),
+    style: {
+      background: "#FBBF24",
+      border: "none",
+      borderRadius: 6,
+      padding: "5px 12px",
+      color: "#fff",
+      fontSize: 11,
+      fontWeight: 700,
+      cursor: "pointer"
+    }
+  }, "SCAN NOW")), showManifestScan && /*#__PURE__*/React.createElement(HandwritingScan, {
+    previousText: lastManifestText,
+    xpLabel: "(+40 XP)",
+    onComplete: text => {
+      setManifestText(text);
+      if (!manifestXp) {
         setManifestXp(true);
         awardXP(40);
       }
+      const u = {
+        ...load(),
+        lastManifestText: text
+      };
+      save(u);
+      setLastManifestText(text);
     },
-    placeholder: "I am... I have... I feel... Write it like it's already real.",
-    rows: 5,
-    style: {
-      width: "100%",
-      ...CARD,
-      padding: 14,
-      color: "#2D1B4E",
-      fontSize: 13,
-      fontFamily: "'DM Mono',monospace",
-      lineHeight: 1.7,
-      border: `1px solid ${manifestXp ? "rgba(52,211,153,0.25)" : "rgba(120,80,160,0.07)"}`,
-      marginBottom: 0
-    }
+    onClose: () => setShowManifestScan(false)
   })), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 24
@@ -2691,7 +3121,7 @@ function App() {
     style: {
       fontSize: 12,
       color: "rgba(80,50,120,0.5)",
-      marginBottom: 8,
+      marginBottom: 10,
       fontStyle: "italic"
     }
   }, gratPrompt), /*#__PURE__*/React.createElement("textarea", {
@@ -2714,8 +3144,40 @@ function App() {
       color: "#2D1B4E",
       fontSize: 13,
       fontFamily: "'DM Mono',monospace",
-      lineHeight: 1.7
+      lineHeight: 1.7,
+      marginBottom: 8
     }
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowGratScan(true),
+    style: {
+      background: "none",
+      border: "none",
+      color: "rgba(167,139,250,0.6)",
+      fontSize: 11,
+      cursor: "pointer",
+      textDecoration: "underline",
+      padding: "4px 0",
+      display: "flex",
+      alignItems: "center",
+      gap: 4
+    }
+  }, "📷 Also scan my physical journal"), showGratScan && /*#__PURE__*/React.createElement(HandwritingScan, {
+    previousText: lastGratText,
+    xpLabel: "(+30 XP)",
+    onComplete: text => {
+      setGratText(prev => prev ? prev + "\n\n" + text : text);
+      if (!gratXp) {
+        setGratXp(true);
+        awardXP(30);
+      }
+      const u = {
+        ...load(),
+        lastGratText: text
+      };
+      save(u);
+      setLastGratText(text);
+    },
+    onClose: () => setShowGratScan(false)
   })), availEvening.some(h => h.id === "todo") && /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 24
