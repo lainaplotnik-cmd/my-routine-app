@@ -656,7 +656,7 @@ function TopBar({
   }, {
     id: "shop",
     label: "🛒",
-    sub: "SHOP"
+    sub: "GROCERIES"
   }];
   return /*#__PURE__*/React.createElement("div", {
     style: {
