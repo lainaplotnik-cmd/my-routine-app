@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"/>
+<title>Routine Widget</title>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="My Routine"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #FDF8FF; font-family: 'DM Mono', monospace; min-height: 100vh; padding: 16px 14px 40px; }
+  @keyframes fadeOut { to { opacity: 0.25; transform: scale(0.98); } }
+  @keyframes pop { 0%{transform:scale(1)} 50%{transform:scale(1.15)} 100%{transform:scale(1)} }
+  @keytml checkIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const SK = "laina_app_v3";
+function loadDb() { try { return JSON.parse(localStorage.getItem(SK)||"{}"); } catch { return {}; } }
+function saveDb(d) { try { localStorage.setItem(SK, JSON.stringify(d)); } catch {} }
+function todayKey() { return new Date().toISOString().slice(0,10); }
+
+const HABITS = [
+  { id:"wakeup",    label:"Feet on floor",    emoji:"🦶" },
+  { id:"xiidra_am", label:"Xiidra (AM)",       emoji:"👁️" },
+  { id:"water",     label:"Drink water",       emoji:"💧" },
+  { id:"workout",   label:"Workout",           emoji:"💪" },
+  { id:"stretch",   label:"Stretch",           emoji:"🧘" },
+  { id:"shower",    label:"Shower",            emoji:"🚿" },
+  { id:"read",      label:"Read",              emoji:"📖" },
+  { id:"meditate",  label:"Meditate",          emoji:"🌬️" },
+];
+
+const MIEBO_MAX = 4;
+const today = todayKey();
+
+function getState() {
+  const db = loadDb();
+  const mChecked = db.mChecked || {};
+  const miebo = (db.mieboDate === today) ? (db.mieboTimes || []) : [];
+  const weight = (db.weightLog || []).find(e => e.date === today);
+  return { mChecked, miebo, weight };
+}
+
+function render() {
+  const { mChecked, miebo, weight } = getState();
+  const total = HABITS.length;
+  const done = HABITS.filter(h => mChecked[h.id]).length;
+  const pct = Math.round((done / total) * 100);
+  const streak = loadDb().streak || 0;
+
+  let html = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+      <div>
+        <div style="font-size:9px;color:#C084FC;letter-spacing:2px">${new Date().toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'}).toUpperCase()}</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#2D1B4E;line-height:1">MY ROUTINE</div>
+      </div>
+      <div style="text-align:right">
+        ${streak > 0 ? `<div style="font-size:13px;color:#F59E0B">🔥 ${streak}</div>` : ''}
+        <div style="font-size:11px;color:rgba(100,60,140,0.4)">${done}/${total}</div>
+      </div>
+    </div>
+    <div style="height:5px;background:rgba(192,132,252,0.12);border-radius:3px;overflow:hidden;margin-bottom:18px">
+      <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,#C084FC,#A78BFA);border-radius:3px;transition:width 0.4s ease"></div>
+    </div>
+    <div id="habits">
+  `;
+
+  HABITS.forEach(h => {
+    const checked = !!mChecked[h.id];
+    html += `
+      <div onclick="toggleHabit('${h.id}')" style="display:flex;align-items:center;gap:12px;padding:11px 8px;border-bottom:1px solid rgba(192,132,252,0.07);cursor:pointer;opacity:${checked?'0.32':'1'};transition:opacity 0.3s">
+        <div style="width:24px;height:24px;border-radius:6px;flex-shrink:0;
+          border:${checked?'none':'1.5px solid rgba(192,132,252,0.25)'};
+          background:${checked?'#34D399':'transparent'};
+          display:flex;align-items:center;justify-content:center;
+          font-size:12px;color:#fff;
+          ${checked?'animation:pop 0.3s ease':''}">${checked?'✓':''}</div>
+        <span style="font-size:16px">${h.emoji}</span>
+        <span style="font-size:13px;color:#2D1B4E;flex:1;text-decoration:${checked?'line-through':'none'}">${h.label}</span>
+      </div>
+    `;
+  });
+
+  // Miebo tracker
+  html += `
+    </div>
+    <div style="margin-top:16px;background:rgba(192,132,252,0.05);border:1px solid rgba(192,132,252,0.15);border-radius:12px;padding:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div style="font-size:9px;color:rgba(100,60,140,0.4);letter-spacing:2px">👁️ MIEBO · ${miebo.length}/4</div>
+        <button onclick="logMiebo()" ${miebo.length>=4?'disabled':''} style="background:${miebo.length>=4?'rgba(45,212,191,0.15)':'#2DD4BF'};color:${miebo.length>=4?'rgba(100,60,140,0.4)':'#fff'};border:none;border-radius:7px;padding:5px 12px;font-size:11px;font-weight:700;cursor:${miebo.length>=4?'default':'pointer'};font-family:'DM Mono',monospace">
+          ${miebo.length>=4?'ALL DONE':'+ LOG DOSE'}
+        </button>
+      </div>
+      <div style="display:flex;gap:5px">
+        ${[0,1,2,3].map(i=>`<div style="flex:1;height:7px;border-radius:3px;background:${i<miebo.length?'#2DD4BF':'rgba(45,212,191,0.15)'}"></div>`).join('')}
+      </div>
+    </div>
+
+    <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+      <input id="weightInput" type="number" placeholder="Weight (lbs)" 
+        style="flex:1;background:rgba(192,132,252,0.04);border:1px solid rgba(192,132,252,0.12);border-radius:8px;padding:9px 12px;color:#2D1B4E;font-size:13px;font-family:'DM Mono',monospace"/>
+      <button onclick="logWeight()" style="background:rgba(192,132,252,0.1);color:#C084FC;border:1px solid rgba(192,132,252,0.2);border-radius:8px;padding:9px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Mono',monospace">LOG</button>
+    </div>
+    ${weight ? `<div style="font-size:10px;color:rgba(100,60,140,0.4);margin-top:6px;padding-left:4px">Today: ${weight.value} lbs</div>` : ''}
+
+    <div style="margin-top:20px;text-align:center">
+      <a href="https://lainaplotnik-cmd.github.io/my-routine-app/" style="font-size:11px;color:rgba(192,132,252,0.5);text-decoration:none">Open full app →</a>
+    </div>
+  `;
+
+  document.getElementById('app').innerHTML = html;
+}
+
+function toggleHabit(id) {
+  const db = loadDb();
+  const mChecked = db.mChecked || {};
+  if (mChecked[id]) return; // no unchecking
+  mChecked[id] = true;
+  saveDb({ ...db, mChecked });
+  render();
+}
+
+function logMiebo() {
+  const db = loadDb();
+  const miebo = (db.mieboDate === todayKey()) ? (db.mieboTimes || []) : [];
+  if (miebo.length >= 4) return;
+  const updated = [...miebo, Date.now()];
+  saveDb({ ...db, mieboTimes: updated, mieboDate: todayKey() });
+  render();
+}
+
+function logWeight() {
+  const val = parseFloat(document.getElementById('weightInput').value);
+  if (!val || val <= 0) return;
+  const db = loadDb();
+  const log = (db.weightLog || []).filter(e => e.date !== todayKey());
+  log.push({ date: todayKey(), value: val });
+  log.sort((a,b) => a.date.localeCompare(b.date));
+  saveDb({ ...db, weightLog: log });
+  render();
+}
+
+render();
+</script>
+</body>
+</html>

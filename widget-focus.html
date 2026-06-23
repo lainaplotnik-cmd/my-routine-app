@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"/>
+<title>One Thing Widget</title>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="One Thing"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #FDF8FF; font-family: 'DM Mono', monospace; min-height: 100vh; display: flex; flex-direction: column; padding: 20px 18px 40px; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes celebrate { 0%{opacity:0;transform:scale(0.85)} 60%{transform:scale(1.08)} 100%{opacity:1;transform:scale(1)} }
+  textarea:focus, input:focus { outline: none; }
+  textarea { resize: none; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const SK = "laina_focus_v2";
+function loadDb() { try { return JSON.parse(localStorage.getItem(SK)||"{}"); } catch { return {}; } }
+function saveDb(d) { try { localStorage.setItem(SK, JSON.stringify(d)); } catch {} }
+function todayKey() { return new Date().toISOString().slice(0,10); }
+function uid() { return Date.now()+"_"+Math.random().toString(36).slice(2,8); }
+
+const DEFAULT_CATS = [
+  { id:"work", label:"Work", color:"#C084FC" },
+  { id:"job", label:"Job Search", color:"#A78BFA" },
+  { id:"alora", label:"Alora", color:"#F472B6" },
+  { id:"personal", label:"Personal", color:"#2DD4BF" },
+  { id:"home", label:"Home", color:"#34D399" },
+];
+
+function getState() {
+  const db = loadDb();
+  const tasks = db.tasks || [];
+  const cats = db.categories || DEFAULT_CATS;
+  const open = tasks.filter(t => t.status === "open");
+  const quick = open.filter(t => t.tier === "quick").sort((a,b) => (a.skippedAt||0)-(b.skippedAt||0)||a.createdAt-b.createdAt);
+  const deep = open.filter(t => t.tier === "deep").sort((a,b) => (a.skippedAt||0)-(b.skippedAt||0)||a.createdAt-b.createdAt);
+  const todayDoneQuick = tasks.filter(t => t.status==="done" && t.tier==="quick" && t.completedAt && new Date(t.completedAt).toISOString().slice(0,10)===todayKey()).length;
+  let current = null, tier = null;
+  if (quick.length > 0 && todayDoneQuick < 2) { current = quick[0]; tier = "quick"; }
+  else if (deep.length > 0) { current = deep[0]; tier = "deep"; }
+  else if (quick.length > 0) { current = quick[0]; tier = "quick"; }
+  const cat = current ? cats.find(c => c.id === current.category) : null;
+  return { current, tier, cat, tasks, cats, open };
+}
+
+let showAdd = false;
+let newText = "";
+let newTier = "quick";
+let newCat = "work";
+let celebrated = false;
+
+function render() {
+  const { current, tier, cat, tasks, cats, open } = getState();
+  const tierColor = tier==="quick" ? "#34D399" : "#A78BFA";
+  const tierLabel = tier==="quick" ? "⚡ QUICK WIN" : "🧠 DEEP WORK";
+  const todayDone = tasks.filter(t=>t.status==="done"&&t.completedAt&&new Date(t.completedAt).toISOString().slice(0,10)===todayKey()).length;
+
+  let html = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <div style="font-size:9px;color:#C084FC;letter-spacing:2px">${new Date().toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'}).toUpperCase()}</div>
+      <div style="font-size:10px;color:rgba(100,60,140,0.35)">${todayDone} done today</div>
+    </div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#2D1B4E;margin-bottom:20px">ONE THING</div>
+  `;
+
+  if (showAdd) {
+    html += `
+      <div style="animation:fadeUp 0.3s ease forwards">
+        <div style="font-size:10px;color:rgba(100,60,140,0.4);letter-spacing:2px;margin-bottom:8px">WHAT NEEDS TO HAPPEN?</div>
+        <textarea id="newTaskText" placeholder="Type your task..." rows="3"
+          style="width:100%;background:rgba(192,132,252,0.05);border:1px solid rgba(192,132,252,0.2);border-radius:10px;padding:12px;color:#2D1B4E;font-size:14px;font-family:'DM Mono',monospace;line-height:1.6;margin-bottom:12px">${newText}</textarea>
+
+        <div style="font-size:10px;color:rgba(100,60,140,0.4);letter-spacing:2px;margin-bottom:8px">EFFORT</div>
+        <div style="display:flex;gap:7px;margin-bottom:14px">
+          <button onclick="setTier('quick')" style="flex:1;padding:9px 0;border-radius:8px;border:none;cursor:pointer;background:${newTier==='quick'?'#34D399':'rgba(120,80,160,0.06)'};color:${newTier==='quick'?'#fff':'rgba(100,60,140,0.5)'};font-size:12px;font-weight:600;font-family:'DM Mono',monospace">⚡ Quick</button>
+          <button onclick="setTier('deep')" style="flex:1;padding:9px 0;border-radius:8px;border:none;cursor:pointer;background:${newTier==='deep'?'#A78BFA':'rgba(120,80,160,0.06)'};color:${newTier==='deep'?'#fff':'rgba(100,60,140,0.5)'};font-size:12px;font-weight:600;font-family:'DM Mono',monospace">🧠 Deep</button>
+          <button onclick="setTier('someday')" style="flex:1;padding:9px 0;border-radius:8px;border:none;cursor:pointer;background:${newTier==='someday'?'#FBBF24':'rgba(120,80,160,0.06)'};color:${newTier==='someday'?'#fff':'rgba(100,60,140,0.5)'};font-size:12px;font-weight:600;font-family:'DM Mono',monospace">🌱 Someday</button>
+        </div>
+
+        <div style="font-size:10px;color:rgba(100,60,140,0.4);letter-spacing:2px;margin-bottom:8px">CATEGORY</div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:18px">
+          ${cats.map(c=>`<button onclick="setCat('${c.id}')" style="padding:5px 11px;border-radius:20px;border:${newCat===c.id?`1.5px solid ${c.color}`:'1px solid rgba(120,80,160,0.1)'};background:${newCat===c.id?c.color+'18':'transparent'};color:${newCat===c.id?c.color:'rgba(100,60,140,0.4)'};font-size:11px;cursor:pointer;font-family:'DM Mono',monospace;font-weight:${newCat===c.id?700:400}">${c.label}</button>`).join('')}
+        </div>
+
+        <div style="display:flex;gap:8px">
+          <button onclick="cancelAdd()" style="flex:1;background:rgba(120,80,160,0.06);border:none;border-radius:10px;padding:12px 0;color:rgba(100,60,140,0.5);font-size:13px;cursor:pointer;font-family:'DM Mono',monospace">Cancel</button>
+          <button onclick="addTask()" style="flex:2;background:#C084FC;border:none;border-radius:10px;padding:12px 0;color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Mono',monospace">Add Task</button>
+        </div>
+      </div>
+    `;
+  } else if (!current) {
+    html += `
+      <div style="text-align:center;padding:40px 0;animation:fadeUp 0.4s ease forwards">
+        <div style="font-size:44px;margin-bottom:14px">✨</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#2D1B4E;margin-bottom:8px">ALL CLEAR</div>
+        <div style="font-size:13px;color:rgba(100,60,140,0.4);margin-bottom:24px">Nothing on your list.</div>
+        <button onclick="openAdd()" style="background:#C084FC;color:#fff;border:none;border-radius:12px;padding:14px 28px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Mono',monospace">+ ADD A TASK</button>
+      </div>
+    `;
+  } else {
+    const daysOld = current.createdAt ? Math.floor((Date.now()-current.createdAt)/86400000) : 0;
+    html += `
+      <div style="animation:fadeUp 0.3s ease forwards">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+          <span style="font-size:10px;letter-spacing:2px;padding:4px 10px;border-radius:20px;background:${tierColor}22;color:${tierColor};font-weight:700">${tierLabel}</span>
+          ${cat ? `<span style="font-size:10px;padding:4px 10px;border-radius:20px;background:${cat.color}18;color:${cat.color}">${cat.label}</span>` : ''}
+        </div>
+
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,8vw,44px);line-height:1.08;color:#2D1B4E;margin-bottom:22px;word-break:break-word">${current.text}</div>
+
+        ${current.notes ? `<div style="font-size:13px;color:rgba(100,60,140,0.5);margin-bottom:18px;line-height:1.6;font-style:italic">${current.notes}</div>` : ''}
+        ${daysOld > 0 ? `<div style="font-size:10px;color:rgba(100,60,140,0.3);margin-bottom:16px">Added ${daysOld} day${daysOld!==1?'s':''} ago</div>` : ''}
+
+        <div style="display:flex;gap:10px;margin-bottom:12px">
+          <button onclick="completeTask('${current.id}')" style="flex:1;background:#34D399;color:#fff;border:none;border-radius:12px;padding:16px 0;font-size:15px;font-weight:700;letter-spacing:1px;cursor:pointer;font-family:'DM Mono',monospace">✓ DONE</button>
+          <button onclick="skipTask('${current.id}')" style="background:rgba(120,80,160,0.06);color:rgba(100,60,140,0.5);border:1px solid rgba(120,80,160,0.12);border-radius:12px;padding:16px 14px;font-size:12px;cursor:pointer;font-family:'DM Mono',monospace">SKIP</button>
+        </div>
+
+        <button onclick="openAdd()" style="width:100%;background:rgba(192,132,252,0.06);border:1px dashed rgba(192,132,252,0.25);border-radius:10px;padding:11px 0;color:#C084FC;font-size:12px;cursor:pointer;font-family:'DM Mono',monospace">+ Add another task</button>
+
+        ${open.length > 1 ? `<div style="margin-top:16px;font-size:11px;color:rgba(100,60,140,0.3);text-align:center">${open.length-1} more waiting — one thing at a time.</div>` : ''}
+      </div>
+    `;
+  }
+
+  html += `<div style="margin-top:24px;text-align:center"><a href="https://lainaplotnik-cmd.github.io/one-thing-app/" style="font-size:11px;color:rgba(192,132,252,0.4);text-decoration:none">Open full app →</a></div>`;
+
+  document.getElementById('app').innerHTML = html;
+}
+
+function openAdd() { showAdd = true; newText = ""; newTier = "quick"; newCat = "work"; render(); }
+function cancelAdd() { showAdd = false; render(); }
+function setTier(t) { newTier = t; syncTextarea(); render(); }
+function setCat(c) { newCat = c; syncTextarea(); render(); }
+function syncTextarea() { const el = document.getElementById('newTaskText'); if (el) newText = el.value; }
+
+function addTask() {
+  syncTextarea();
+  if (!newText.trim()) return;
+  const db = loadDb();
+  const tasks = db.tasks || [];
+  tasks.push({ id:uid(), text:newText.trim(), notes:"", category:newCat, tier:newTier, due:null, status:"open", createdAt:Date.now(), completedAt:null, timeSpent:0 });
+  saveDb({ ...db, tasks });
+  showAdd = false; newText = "";
+  render();
+}
+
+function completeTask(id) {
+  const db = loadDb();
+  const tasks = (db.tasks||[]).map(t => t.id===id ? {...t, status:"done", completedAt:Date.now()} : t);
+  saveDb({ ...db, tasks });
+  // show quick celebration
+  document.getElementById('app').innerHTML = `<div style="text-align:center;padding:60px 20px;animation:celebrate 0.4s ease forwards"><div style="font-size:52px;margin-bottom:14px">🎉</div><div style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:#34D399">NICE WORK</div></div>`;
+  setTimeout(render, 1800);
+}
+
+function skipTask(id) {
+  const db = loadDb();
+  const tasks = (db.tasks||[]).map(t => t.id===id ? {...t, skippedAt:Date.now()} : t);
+  saveDb({ ...db, tasks });
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
