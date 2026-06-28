@@ -5,7 +5,7 @@ const {
 } = React;
 
 // ── STORAGE ───────────────────────────────────────────────────
-const SK = "laina_app_v3";
+const SK = "laina_app_v4";
 function load() {
   try {
     const r = localStorage.getItem(SK);
