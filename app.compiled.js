@@ -329,20 +329,104 @@ const SHOP_CATS = [{
 
 // ── CSS ───────────────────────────────────────────────────────
 const CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Bebas+Neue&display=swap');
-  *{box-sizing:border-box;} body{margin:0;background:#FDF8FF;}
-  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.25)}100%{transform:scale(1)}}
-  @keyframes toastIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes toastOut{to{opacity:0;transform:translateY(-10px)}}
-  @keyframes unlockPop{0%{opacity:0;transform:scale(0.8)}60%{transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
-  @keyframes glow{0%,100%{box-shadow:0 0 16px rgba(192,132,252,0.3)}50%{box-shadow:0 0 32px rgba(192,132,252,0.55)}}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-  textarea{resize:none;} textarea:focus,input:focus{outline:none;}
-  ::-webkit-scrollbar{width:4px;} ::-webkit-scrollbar-thumb{background:#C4B5FD;border-radius:2px;}
-  .tab-btn{transition:all 0.2s;} .tab-btn:hover{opacity:0.8;}
-  .habit-check{transition:all 0.15s;} .habit-check:hover{transform:scale(1.1);}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Bebas+Neue&display=swap');
+
+:root{
+ --bg:#FCFBFF;
+ --card:#FFFFFF;
+ --text:#2B2142;
+ --muted:#7C6D95;
+ --primary:#9B8AFB;
+ --primaryDark:#7C5CFA;
+ --rose:#F8DDEB;
+ --mint:#BDEDD8;
+ --gold:#F6C56F;
+ --border:#ECE6F8;
+ --shadow:0 10px 35px rgba(85,62,130,.08);
+ --radius:18px;
+}
+
+*{box-sizing:border-box;}
+
+html,body{
+ margin:0;
+ padding:0;
+ min-height:100%;
+ background:
+  radial-gradient(circle at top left,#FBE7F1 0%,transparent 35%),
+  radial-gradient(circle at top right,#EEE7FF 0%,transparent 38%),
+  #FCFBFF;
+ color:var(--text);
+ font-family:"DM Sans",sans-serif;
+ -webkit-font-smoothing:antialiased;
+}
+
+button,input,textarea{
+ font-family:"DM Sans",sans-serif !important;
+}
+
+textarea{resize:none;}
+
+textarea:focus,input:focus{
+ outline:none;
+ border-color:#B6A4FF !important;
+ box-shadow:0 0 0 4px rgba(155,138,251,.15);
+}
+
+button{
+ transition:.22s;
+ -webkit-tap-highlight-color:transparent;
+}
+
+button:hover{transform:translateY(-1px);}
+button:active{transform:scale(.98);}
+
+.tab-btn{border-radius:999px !important;}
+.habit-check{border-radius:999px !important;}
+
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-thumb{background:#D7CCFF;border-radius:999px;}
+
+@keyframes fadeUp{
+ from{opacity:0;transform:translateY(12px);}
+ to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes pop{
+ 0%{transform:scale(1);}
+ 50%{transform:scale(1.18);}
+ 100%{transform:scale(1);}
+}
+
+@keyframes shake{
+ 0%,100%{transform:translateX(0);}
+ 25%{transform:translateX(-7px);}
+ 75%{transform:translateX(7px);}
+}
+
+@keyframes toastIn{
+ from{opacity:0;transform:translateY(-10px);}
+ to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes toastOut{
+ to{opacity:0;transform:translateY(-10px);}
+}
+
+@keyframes unlockPop{
+ from{opacity:0;transform:scale(.9);}
+ to{opacity:1;transform:scale(1);}
+}
+
+@keyframes glow{
+ 0%,100%{box-shadow:0 0 16px rgba(155,138,251,.2);}
+ 50%{box-shadow:0 0 30px rgba(155,138,251,.38);}
+}
+
+@keyframes pulse{
+ 0%,100%{opacity:1;}
+ 50%{opacity:.45;}
+}
 `;
 
 // ── COMPONENTS ────────────────────────────────────────────────
