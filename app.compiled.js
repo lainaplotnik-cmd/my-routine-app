@@ -755,6 +755,7 @@ function TopBar({
       color: active === t.id ? "#FFFFFF" : "rgba(43,33,66,0.42)"
     }
   }, t.sub))))));
+}
 
 // ── MAIN ──────────────────────────────────────────────────────
 function App() {
