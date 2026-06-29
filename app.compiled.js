@@ -574,7 +574,7 @@ function TimerBlock({
       color: done ? "#34D399" : "#C084FC",
       minWidth: 52
     }
-  }, done ? "DONE" : fmt(rem)), !done && /*#__PURE__*/React.createElement("button", {
+  }, done ? "Done" : fmt(rem)), !done && /*#__PURE__*/React.createElement("button", {
     onClick: () => setRunning(!running),
     style: {
       background: running ? "rgba(192,132,252,0.15)" : "#C084FC",
@@ -604,23 +604,23 @@ function TopBar({
   const tabs = [{
     id: "morning",
     label: "☀️",
-    sub: "MORNING"
+    sub: "Morning"
   }, {
     id: "roadmap",
     label: "🗺️",
-    sub: "JOURNEY"
+    sub: "Journey"
   }, {
     id: "hydration",
     label: "💧",
-    sub: "HYDRATION"
+    sub: "Hydration"
   }, {
     id: "evening",
     label: "🌙",
-    sub: "EVENING"
+    sub: "Evening"
   }, {
     id: "shop",
     label: "🛒",
-    sub: "GROCERIES"
+    sub: "Groceries"
   }];
    return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1791,7 +1791,7 @@ function App() {
       fontWeight: 700,
       cursor: "pointer"
     }
-  }, "LOG")), weightLog.length > 1 && /*#__PURE__*/React.createElement("div", {
+  }, "Log")), weightLog.length > 1 && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 12
     }
@@ -2294,7 +2294,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "DRY MOUTH LEVEL (1–10)"), /*#__PURE__*/React.createElement("div", {
+  }, "Dry mouth level (1–10)"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 5,
@@ -2335,7 +2335,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "CAFFEINE / SWEET DRINKS"), /*#__PURE__*/React.createElement("div", {
+  }, "Caffeine/sweet drinks"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       alignItems: "center",
@@ -2859,7 +2859,7 @@ function App() {
       fontSize: 20,
       color: "rgba(100,60,140,0.35)"
     }
-  }, "LOCKED"), /*#__PURE__*/React.createElement("div", {
+  }, "Locked"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: "rgba(100,60,140,0.2)",
@@ -2879,7 +2879,7 @@ function App() {
       color: "#7C3AED",
       marginBottom: 12
     }
-  }, "YOU EARNED THIS 🧩"), /*#__PURE__*/React.createElement("div", {
+  }, "You earned this 🧩"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "column",
