@@ -446,7 +446,7 @@ function Toast({
       zIndex: 999,
       background: "#C084FC",
       color: "#fff",
-      fontFamily: "monospace",
+      fontFamily: "sans-serif",
       fontWeight: 700,
       fontSize: 15,
       padding: "8px 16px",
@@ -513,7 +513,7 @@ function UnlockBanner({
     style: {
       color: "#C084FC",
       fontSize: 14,
-      fontFamily: "monospace"
+      fontFamily: "sans-serif"
     }
   }, "+", habit.xp, " XP now available")));
 }
@@ -569,7 +569,7 @@ function TimerBlock({
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontFamily: "monospace",
+      fontFamily: "sans-serif",
       fontSize: 17,
       color: done ? "#34D399" : "#C084FC",
       minWidth: 52
@@ -583,7 +583,7 @@ function TimerBlock({
       borderRadius: 4,
       padding: "3px 12px",
       fontSize: 11,
-      fontFamily: "monospace",
+      fontFamily: "sans-serif",
       fontWeight: 700,
       letterSpacing: 1,
       cursor: "pointer"
@@ -1186,7 +1186,7 @@ function App() {
       style: {
         minHeight: "100vh",
         background: "#FDFBFF",
-        fontFamily: "'DM Mono',monospace"
+        fontFamily: "'DM Sans',sans-serif"
       }
     }, /*#__PURE__*/React.createElement("style", null, CSS), /*#__PURE__*/React.createElement(TopBar, {
       totalXP: totalXP,
@@ -1258,7 +1258,7 @@ function App() {
         padding: 16,
         color: "#2D1B4E",
         fontSize: 14,
-        fontFamily: "'DM Mono',monospace",
+        fontFamily: "'DM Sans',sans-serif",
         lineHeight: 1.7,
         animation: shake ? "shake 0.4s ease" : "none"
       }
@@ -1282,7 +1282,7 @@ function App() {
         border: "none",
         borderRadius: 6,
         padding: "10px 20px",
-        fontFamily: "'DM Mono',monospace",
+        fontFamily: "'DM Sans',sans-serif",
         fontSize: 12,
         fontWeight: 500,
         letterSpacing: 1,
@@ -1315,7 +1315,7 @@ function App() {
     style: {
       minHeight: "100vh",
       background: "#FDFBFF",
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       paddingBottom: 100
     }
   }, /*#__PURE__*/React.createElement("style", null, CSS), toasts.map(t => /*#__PURE__*/React.createElement(Toast, {
@@ -1372,7 +1372,7 @@ function App() {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      fontFamily: "'DM Mono',monospace"
+      fontFamily: "'DM Sans',sans-serif"
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -1455,7 +1455,7 @@ function App() {
       border: "1px solid rgba(120,80,160,0.1)",
       borderRadius: 8,
       padding: "10px 0",
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 12,
       cursor: "pointer"
     }
@@ -1468,7 +1468,7 @@ function App() {
       border: "none",
       borderRadius: 8,
       padding: "10px 0",
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 12,
       fontWeight: 700,
       cursor: "pointer"
@@ -1570,7 +1570,7 @@ function App() {
       padding: 14,
       color: "#2D1B4E",
       fontSize: 13,
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       lineHeight: 1.7,
       border: `1px solid ${manifestXp ? "rgba(52,211,153,0.25)" : "rgba(120,80,160,0.07)"}`,
       marginBottom: 0
@@ -1698,7 +1698,7 @@ function App() {
     style: {
       color: "#2D1B4E",
       fontSize: 16,
-      fontFamily: "monospace",
+      fontFamily: "sans-serif",
       marginBottom: 12
     }
   }, "Next dose in ", Math.floor(nextMieboGap() / 3600000), "h ", Math.floor(nextMieboGap() % 3600000 / 60000), "m")), miebo.length >= 4 && /*#__PURE__*/React.createElement("div", {
@@ -1717,7 +1717,7 @@ function App() {
       border: "none",
       borderRadius: 8,
       padding: "11px 0",
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 12,
       fontWeight: 700,
       cursor: miebo.length >= 4 ? "default" : "pointer"
@@ -1776,7 +1776,7 @@ function App() {
       padding: "10px 14px",
       color: "#2D1B4E",
       fontSize: 13,
-      fontFamily: "'DM Mono',monospace"
+      fontFamily: "'DM Sans',sans-serif"
     }
   }), /*#__PURE__*/React.createElement("button", {
     onClick: logWeight,
@@ -1786,7 +1786,7 @@ function App() {
       border: "1px solid rgba(192,132,252,0.35)",
       borderRadius: 8,
       padding: "10px 18px",
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 12,
       fontWeight: 700,
       cursor: "pointer"
@@ -2225,7 +2225,7 @@ function App() {
       borderRadius: 6,
       padding: "6px 10px",
       fontSize: 10,
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       cursor: "pointer",
       whiteSpace: "nowrap"
     }
@@ -2314,7 +2314,7 @@ function App() {
       cursor: "pointer",
       background: dryMouth === n ? n <= 3 ? "#34D399" : n <= 6 ? "#F59E0B" : "#F87171" : "rgba(120,80,160,0.06)",
       color: dryMouth === n ? "#FDFBFF" : "rgba(80,50,120,0.5)",
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 13,
       fontWeight: 700,
       transition: "all 0.2s"
@@ -2653,7 +2653,7 @@ function App() {
       padding: "9px 12px",
       color: "#2D1B4E",
       fontSize: 12,
-      fontFamily: "'DM Mono',monospace"
+      fontFamily: "'DM Sans',sans-serif"
     }
   }), /*#__PURE__*/React.createElement("button", {
     onClick: addCustomEvening,
@@ -2711,7 +2711,7 @@ function App() {
       padding: 14,
       color: "#2D1B4E",
       fontSize: 13,
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       lineHeight: 1.7
     }
   })), availEvening.some(h => h.id === "todo") && /*#__PURE__*/React.createElement("div", {
@@ -2764,7 +2764,7 @@ function App() {
       padding: "10px 14px",
       color: "#2D1B4E",
       fontSize: 13,
-      fontFamily: "'DM Mono',monospace"
+      fontFamily: "'DM Sans',sans-serif"
     }
   }), /*#__PURE__*/React.createElement("button", {
     onClick: () => {
@@ -2923,7 +2923,7 @@ function App() {
     style: {
       color: "#2D1B4E",
       fontSize: 13,
-      fontFamily: "'DM Mono',monospace"
+      fontFamily: "'DM Sans',sans-serif"
     }
   }, p.name), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -2995,7 +2995,7 @@ function App() {
       padding: "11px 14px",
       color: "#2D1B4E",
       fontSize: 13,
-      fontFamily: "'DM Mono',monospace"
+      fontFamily: "'DM Sans',sans-serif"
     }
   }), /*#__PURE__*/React.createElement("button", {
     onClick: addShopItem,
@@ -3025,7 +3025,7 @@ function App() {
       border: "none",
       cursor: "pointer",
       fontSize: 11,
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       background: shopCat === c.id ? "#34D399" : "rgba(120,80,160,0.06)",
       color: shopCat === c.id ? "#FDFBFF" : "rgba(80,50,120,0.5)",
       transition: "all 0.15s"
@@ -3046,7 +3046,7 @@ function App() {
       border: "none",
       cursor: "pointer",
       fontSize: 11,
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       background: shopFilter === f ? "rgba(74,222,128,0.15)" : "rgba(120,80,160,0.04)",
       color: shopFilter === f ? "#34D399" : "rgba(100,60,140,0.3)",
       transition: "all 0.15s"
@@ -3131,7 +3131,7 @@ function App() {
       border: "1px solid rgba(120,80,160,0.08)",
       borderRadius: 8,
       color: "rgba(100,60,140,0.3)",
-      fontFamily: "'DM Mono',monospace",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 12,
       cursor: "pointer",
       marginTop: 8
