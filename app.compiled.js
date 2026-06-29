@@ -495,7 +495,7 @@ function UnlockBanner({
     }
   }, "New habit unlocked"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 44,
       color: "#2D1B4E",
       lineHeight: 1,
@@ -1232,7 +1232,7 @@ function App() {
       }
     }, step.label, " · ", uStep + 1, "/", UNLOCK_STEPS.length), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontFamily: "'Bebas Neue',sans-serif",
+        fontFamily: "'DM Sans',sans-serif",
         fontSize: 34,
         color: "#2D1B4E",
         lineHeight: 1.1,
@@ -1348,7 +1348,7 @@ function App() {
     }
   }, "🧩"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 38,
       color: "#7C3AED"
     }
@@ -1426,7 +1426,7 @@ function App() {
     }
   }, "You're stuck. That's ok."), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 24,
       color: "#2D1B4E",
       lineHeight: 1.3,
@@ -1497,7 +1497,7 @@ function App() {
     }
   }, todayDisplay.toUpperCase()), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 40,
       color: "#2D1B4E",
       lineHeight: 1
@@ -1836,7 +1836,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 28,
       color: "#7C3AED"
     }
@@ -1863,7 +1863,7 @@ function App() {
     }
   }, "Your journey"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 40,
       color: "#2D1B4E",
       lineHeight: 1
@@ -2146,7 +2146,7 @@ function App() {
     }
   }, "🔥"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 24,
       color: "#D97706"
     }
@@ -2173,7 +2173,7 @@ function App() {
     }
   }, "Hydration"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 40,
       color: "#2D1B4E",
       lineHeight: 1
@@ -2363,7 +2363,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 32,
       color: cafCount >= 3 ? "#F59E0B" : "#fff"
     }
@@ -2507,7 +2507,7 @@ function App() {
     }
   }, "Wind down · 10:00 PM"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 40,
       color: "#2D1B4E",
       lineHeight: 1
@@ -2855,7 +2855,7 @@ function App() {
     }
   }, "🧩"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 20,
       color: "rgba(100,60,140,0.35)"
     }
@@ -2874,7 +2874,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 20,
       color: "#7C3AED",
       marginBottom: 12
@@ -2959,7 +2959,7 @@ function App() {
     }
   }, "Shopping list"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: "'Bebas Neue',sans-serif",
+      fontFamily: "'DM Sans',sans-serif",
       fontSize: 40,
       color: "#2D1B4E",
       lineHeight: 1
