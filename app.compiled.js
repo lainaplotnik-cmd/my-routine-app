@@ -5,7 +5,7 @@ const {
 } = React;
 
 // ── STORAGE ───────────────────────────────────────────────────
-const SK = "laina_app_v4";
+const SK = "laina_app_v3";
 function load() {
   try {
     const r = localStorage.getItem(SK);
@@ -617,109 +617,80 @@ function TopBar({
     id: "evening",
     label: "🌙",
     sub: "EVENING"
-   return /*#__PURE__*/React.createElement("div", {
+  }, {
+    id: "shop",
+    label: "🛒",
+    sub: "SHOP"
+  }];
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "sticky",
       top: 0,
       zIndex: 100,
-      background: "rgba(252,251,255,0.86)",
-      backdropFilter: "blur(18px)",
-      WebkitBackdropFilter: "blur(18px)",
-      borderBottom: "1px solid rgba(167,139,250,0.14)",
-      padding: "14px 16px 12px"
+      background: "rgba(253,248,255,0.97)",
+      borderBottom: "1px solid rgba(120,80,160,0.06)",
+      padding: "10px 16px"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      maxWidth: 560,
+      maxWidth: 520,
       margin: "0 auto"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       alignItems: "center",
-      gap: 12,
-      marginBottom: 10
+      gap: 8,
+      marginBottom: 6
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("span", {
     style: {
-      width: 42,
-      height: 42,
-      borderRadius: 16,
-      background: "linear-gradient(135deg,#F8DDEB,#EEE7FF)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      boxShadow: "0 8px 22px rgba(155,138,251,0.16)",
-      fontSize: 20
+      fontSize: 10,
+      color: "#C084FC",
+      letterSpacing: 1
     }
-  }, active === "evening" ? "🌙" : active === "hydration" ? "💧" : active === "shop" ? "🛒" : "☀️"), /*#__PURE__*/React.createElement("div", {
+  }, "LVL ", level.level, " · ", level.title.toUpperCase()), /*#__PURE__*/React.createElement("div", {
     style: {
-      flex: 1,
-      minWidth: 0
+      flex: 1
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 13,
-      fontWeight: 700,
-      color: "#2B2142",
-      lineHeight: 1.15
-    }
-  }, "Level ", level.level, " · ", level.title), /*#__PURE__*/React.createElement("div", {
+  }), streak > 0 && /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: 11,
-      color: "rgba(43,33,66,0.48)",
-      marginTop: 2
-    }
-  }, next ? `${next.min - totalXP} XP until ${next.title}` : "Top level reached")), streak > 0 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      background: "rgba(246,197,111,0.18)",
-      color: "#B7791F",
-      border: "1px solid rgba(246,197,111,0.35)",
-      borderRadius: 999,
-      padding: "6px 10px",
-      fontSize: 12,
-      fontWeight: 700,
-      whiteSpace: "nowrap"
+      color: "#F59E0B"
     }
   }, "🔥 ", streak)), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       alignItems: "center",
-      gap: 10,
-      marginBottom: 12
+      gap: 8,
+      marginBottom: 10
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1,
-      height: 8,
-      background: "rgba(167,139,250,0.12)",
-      borderRadius: 999,
+      height: 4,
+      background: "rgba(120,80,160,0.07)",
+      borderRadius: 2,
       overflow: "hidden"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       height: "100%",
       width: `${pct}%`,
-      background: "linear-gradient(90deg,#9B8AFB,#F0ABFC)",
-      borderRadius: 999,
+      background: "linear-gradient(90deg,#C084FC,#D8A0FF)",
+      borderRadius: 2,
       transition: "width 0.6s ease"
     }
   })), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 12,
-      color: "rgba(43,33,66,0.48)",
-      fontWeight: 700,
+      fontSize: 10,
+      color: "rgba(100,60,140,0.3)",
       whiteSpace: "nowrap"
     }
   }, totalXP, " XP")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
-      gap: 6,
-      background: "rgba(255,255,255,0.62)",
-      border: "1px solid rgba(167,139,250,0.12)",
-      borderRadius: 18,
-      padding: 4,
-      boxShadow: "0 8px 24px rgba(85,62,130,0.06)"
+      gap: 4
     }
   }, tabs.map(t => /*#__PURE__*/React.createElement("button", {
     key: t.id,
@@ -727,29 +698,30 @@ function TopBar({
     className: "tab-btn",
     style: {
       flex: 1,
-      padding: "8px 4px",
-      borderRadius: 14,
+      padding: "6px 2px",
+      borderRadius: 6,
       border: "none",
       cursor: "pointer",
-      background: active === t.id ? "linear-gradient(135deg,#9B8AFB,#C084FC)" : "transparent",
+      background: active === t.id ? "#C084FC" : "rgba(120,80,160,0.05)",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      gap: 2,
-      boxShadow: active === t.id ? "0 8px 18px rgba(155,138,251,0.28)" : "none"
+      gap: 1
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 15
+      fontSize: 14
     }
   }, t.label), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: 8,
-      fontWeight: 700,
-      letterSpacing: 0.7,
-      color: active === t.id ? "#FFFFFF" : "rgba(43,33,66,0.42)"
+      fontFamily: "'DM Mono',monospace",
+      fontWeight: 500,
+      letterSpacing: 0.5,
+      color: active === t.id ? "#4A1D8C" : "rgba(100,60,140,0.3)"
     }
   }, t.sub))))));
+}
 
 // ── MAIN ──────────────────────────────────────────────────────
 function App() {
