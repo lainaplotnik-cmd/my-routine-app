@@ -493,7 +493,7 @@ function UnlockBanner({
       letterSpacing: 3,
       marginBottom: 8
     }
-  }, "NEW HABIT UNLOCKED"), /*#__PURE__*/React.createElement("div", {
+  }, "New habit unlocked"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
       fontSize: 44,
@@ -620,7 +620,7 @@ function TopBar({
   }, {
     id: "shop",
     label: "🛒",
-    sub: "SHOP"
+    sub: "GROCERIES"
   }];
    return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -955,12 +955,12 @@ function App() {
   function handleUnlock() {
     const steps = [{
       minLength: 10,
-      label: "SET YOUR INTENTION",
+      label: "Set your intention",
       prompt: "What is one thing that matters today?",
       placeholder: "Type it out..."
     }, {
       minLength: 15,
-      label: "MORNING CHECK-IN",
+      label: "Morning check-in",
       prompt: "How are you actually feeling right now?",
       placeholder: "No filter. Just type..."
     }];
@@ -1352,7 +1352,7 @@ function App() {
       fontSize: 38,
       color: "#7C3AED"
     }
-  }, "PUZZLES UNLOCKED"), /*#__PURE__*/React.createElement("div", {
+  }, "Puzzles unlocked"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 13,
       color: "rgba(80,50,120,0.5)",
@@ -1378,7 +1378,7 @@ function App() {
     style: {
       fontSize: 13
     }
-  }, "🛑 11:00 PM — PUT THE PUZZLE DOWN."), /*#__PURE__*/React.createElement("button", {
+  }, "🛑 11:00 PM — Put the puzzle down."), /*#__PURE__*/React.createElement("button", {
     onClick: () => setStopFired(false),
     style: {
       background: "rgba(100,60,140,0.2)",
@@ -1424,7 +1424,7 @@ function App() {
       letterSpacing: 3,
       marginBottom: 12
     }
-  }, "YOU'RE STUCK. THAT'S OK."), /*#__PURE__*/React.createElement("div", {
+  }, "You're stuck. That's ok."), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
       fontSize: 24,
@@ -1459,7 +1459,7 @@ function App() {
       fontSize: 12,
       cursor: "pointer"
     }
-  }, "ANOTHER ONE"), /*#__PURE__*/React.createElement("button", {
+  }, "Another one"), /*#__PURE__*/React.createElement("button", {
     onClick: () => setShowParalysis(false),
     style: {
       flex: 1,
@@ -1473,7 +1473,7 @@ function App() {
       fontWeight: 700,
       cursor: "pointer"
     }
-  }, "OK, GOING")))), /*#__PURE__*/React.createElement(TopBar, {
+  }, "Ok, going")))), /*#__PURE__*/React.createElement(TopBar, {
     totalXP: totalXP,
     streak: streak,
     active: active,
@@ -1502,7 +1502,7 @@ function App() {
       color: "#2D1B4E",
       lineHeight: 1
     }
-  }, "GOOD MORNING"), /*#__PURE__*/React.createElement("div", {
+  }, "Good morning"), /*#__PURE__*/React.createElement("div", {
     style: {
       color: "rgba(100,60,140,0.25)",
       fontSize: 12,
@@ -1523,7 +1523,7 @@ function App() {
       letterSpacing: 2,
       marginBottom: 5
     }
-  }, "TODAY'S INTENTION"), /*#__PURE__*/React.createElement("div", {
+  }, "Today's intention"), /*#__PURE__*/React.createElement("div", {
     style: {
       color: "#2D1B4E",
       fontSize: 13,
@@ -1541,7 +1541,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "✨ MANIFESTATION JOURNAL"), /*#__PURE__*/React.createElement("span", {
+  }, "✨ Manifestation journal"), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: 10,
       color: manifestXp ? "#34D399" : "#C084FC"
@@ -1581,7 +1581,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "MORNING HABITS"), HABIT_JOURNEY.map(h => {
+  }, "Morning habits"), HABIT_JOURNEY.map(h => {
     const unlocked = isUnlocked(h);
     const done = !!mChecked[h.id];
     if (!unlocked) return null;
@@ -1659,7 +1659,7 @@ function App() {
       color: "rgba(100,60,140,0.4)",
       letterSpacing: 2
     }
-  }, "👁️ MIEBO DROPS · 4X DAILY"), /*#__PURE__*/React.createElement("span", {
+  }, "👁️ Miebo drops · 4X daily"), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: 10,
       color: "#2DD4BF"
@@ -1750,7 +1750,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "WEIGHT (OPTIONAL)"), /*#__PURE__*/React.createElement("span", {
+  }, "Weight (optional)"), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: 10,
       color: "rgba(100,60,140,0.2)"
@@ -1840,7 +1840,7 @@ function App() {
       fontSize: 28,
       color: "#7C3AED"
     }
-  }, "MORNING COMPLETE ☀️"), /*#__PURE__*/React.createElement("div", {
+  }, "Morning comlpete ☀️"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: "rgba(80,50,120,0.45)",
@@ -1861,14 +1861,14 @@ function App() {
       letterSpacing: 3,
       marginBottom: 4
     }
-  }, "YOUR JOURNEY"), /*#__PURE__*/React.createElement("div", {
+  }, "Your journey"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
       fontSize: 40,
       color: "#2D1B4E",
       lineHeight: 1
     }
-  }, "HABIT ROADMAP"), /*#__PURE__*/React.createElement("div", {
+  }, "Habit roadmap"), /*#__PURE__*/React.createElement("div", {
     style: {
       color: "rgba(100,60,140,0.25)",
       fontSize: 12,
@@ -1880,7 +1880,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "YOUR LAST 14 DAYS"), /*#__PURE__*/React.createElement("div", {
+  }, "Your last 14 days"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 4
@@ -1928,7 +1928,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "☀️ MORNING PATH"), /*#__PURE__*/React.createElement("div", {
+  }, "☀️ Morning path"), /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative",
       paddingLeft: 24
@@ -2033,7 +2033,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "🌙 EVENING PATH"), /*#__PURE__*/React.createElement("div", {
+  }, "🌙 Evening path"), /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative",
       paddingLeft: 24
@@ -2171,14 +2171,14 @@ function App() {
       letterSpacing: 3,
       marginBottom: 4
     }
-  }, "HYDRATION"), /*#__PURE__*/React.createElement("div", {
+  }, "Hydration"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
       fontSize: 40,
       color: "#2D1B4E",
       lineHeight: 1
     }
-  }, "STAY HYDRATED"), /*#__PURE__*/React.createElement("div", {
+  }, "Stay hydrated"), /*#__PURE__*/React.createElement("div", {
     style: {
       color: "rgba(100,60,140,0.25)",
       fontSize: 12,
@@ -2210,7 +2210,7 @@ function App() {
       letterSpacing: 2,
       marginBottom: 4
     }
-  }, "GENTLE REMINDER"), /*#__PURE__*/React.createElement("div", {
+  }, "Gentle reminder"), /*#__PURE__*/React.createElement("div", {
     style: {
       color: "#2D1B4E",
       fontSize: 13,
@@ -2235,7 +2235,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "HYDRATION HELPERS · +3 XP EACH"), HYDRATION_ITEMS.map(item => /*#__PURE__*/React.createElement("div", {
+  }, "Hydration helpers · +3 XP each"), HYDRATION_ITEMS.map(item => /*#__PURE__*/React.createElement("div", {
     key: item.id,
     onClick: () => toggleHyd(item.id),
     style: {
@@ -2400,7 +2400,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "IC SYMPTOMS TODAY"), /*#__PURE__*/React.createElement("button", {
+  }, "IC symptoms today"), /*#__PURE__*/React.createElement("button", {
     onClick: () => {
       setIcFlare(!icFlare);
       saveHydMeta();
@@ -2458,7 +2458,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "DRY MOUTH TREND · 7 DAYS"), /*#__PURE__*/React.createElement("div", {
+  }, "Dry mouth trend · 7 days"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 5,
@@ -2505,14 +2505,14 @@ function App() {
       letterSpacing: 3,
       marginBottom: 4
     }
-  }, "WIND DOWN · 10:00 PM"), /*#__PURE__*/React.createElement("div", {
+  }, "Wind down · 10:00 PM"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
       fontSize: 40,
       color: "#2D1B4E",
       lineHeight: 1
     }
-  }, "GOOD EVENING"), /*#__PURE__*/React.createElement("div", {
+  }, "Good evening"), /*#__PURE__*/React.createElement("div", {
     style: {
       color: "rgba(100,60,140,0.25)",
       fontSize: 12,
@@ -2524,7 +2524,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: SL
-  }, "EVENING ROUTINE"), EVENING_JOURNEY.map(h => {
+  }, "Evening routine"), EVENING_JOURNEY.map(h => {
     if (!isUnlocked(h)) return null;
     const done = !!eChecked[h.id];
     return /*#__PURE__*/React.createElement("div", {
@@ -2957,14 +2957,14 @@ function App() {
       letterSpacing: 3,
       marginBottom: 4
     }
-  }, "SHOPPING LIST"), /*#__PURE__*/React.createElement("div", {
+  }, "Shopping list"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Bebas Neue',sans-serif",
       fontSize: 40,
       color: "#2D1B4E",
       lineHeight: 1
     }
-  }, "WHAT DO YOU NEED?"), /*#__PURE__*/React.createElement("div", {
+  }, "What do you need?"), /*#__PURE__*/React.createElement("div", {
     style: {
       color: "rgba(100,60,140,0.25)",
       fontSize: 12,
@@ -3144,7 +3144,7 @@ function App() {
       letterSpacing: 3,
       marginTop: 32
     }
-  }, "YOU SHOWED UP TODAY.")), /*#__PURE__*/React.createElement("button", {
+  }, "You showed up today.")), /*#__PURE__*/React.createElement("button", {
     onClick: () => {
       setParalysisStep(PARALYSIS[Math.floor(Math.random() * PARALYSIS.length)]);
       setShowParalysis(true);
