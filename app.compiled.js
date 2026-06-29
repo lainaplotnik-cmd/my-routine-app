@@ -1170,12 +1170,12 @@ function App() {
   // ── UNLOCK SCREEN ──────────────────────────────────────────────
   const UNLOCK_STEPS = [{
     minLength: 10,
-    label: "SET YOUR INTENTION",
+    label: "Set your intention",
     prompt: "What is one thing that matters today?",
     placeholder: "Type it out..."
   }, {
     minLength: 15,
-    label: "MORNING CHECK-IN",
+    label: "Morning check-in",
     prompt: "How are you actually feeling right now?",
     placeholder: "No filter. Just type..."
   }];
