@@ -1,4 +1,4 @@
-const CACHE_NAME = "routine-app-v4";
+const CACHE_NAME = "routine-app-v5";
 
 const FILES_TO_CACHE = [
   "./",
