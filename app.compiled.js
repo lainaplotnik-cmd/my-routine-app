@@ -447,7 +447,7 @@ function Toast({
       background: "#C084FC",
       color: "#fff",
       fontFamily: "sans-serif",
-      fontWeight: 700,
+      fontWeight: 600,
       fontSize: 15,
       padding: "8px 16px",
       borderRadius: 8,
@@ -490,7 +490,7 @@ function UnlockBanner({
     style: {
       fontSize: 11,
       color: "#C084FC",
-      letterSpacing: 3,
+      letterSpacing: 0.8,
       marginBottom: 8
     }
   }, "New habit unlocked"), /*#__PURE__*/React.createElement("div", {
@@ -584,8 +584,8 @@ function TimerBlock({
       padding: "3px 12px",
       fontSize: 11,
       fontFamily: "sans-serif",
-      fontWeight: 700,
-      letterSpacing: 1,
+      fontWeight: 600,
+      letterSpacing: 0.8,
       cursor: "pointer"
     }
   }, running ? "PAUSE" : "START")));
@@ -665,7 +665,7 @@ function TopBar({
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 13,
-      fontWeight: 700,
+      fontWeight: 600,
       color: "#2B2142",
       lineHeight: 1.15
     }
@@ -683,7 +683,7 @@ function TopBar({
       borderRadius: 999,
       padding: "6px 10px",
       fontSize: 12,
-      fontWeight: 700,
+      fontWeight: 600,
       whiteSpace: "nowrap"
     }
   }, "🔥 ", streak)), /*#__PURE__*/React.createElement("div", {
@@ -713,7 +713,7 @@ function TopBar({
     style: {
       fontSize: 12,
       color: "rgba(43,33,66,0.48)",
-      fontWeight: 700,
+      fontWeight: 600,
       whiteSpace: "nowrap"
     }
   }, totalXP, " XP")), /*#__PURE__*/React.createElement("div", {
@@ -750,7 +750,7 @@ function TopBar({
   }, t.label), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: 8,
-      fontWeight: 700,
+      fontWeight: 600,
       letterSpacing: 0.7,
       color: active === t.id ? "#FFFFFF" : "rgba(43,33,66,0.42)"
     }
@@ -1227,7 +1227,7 @@ function App() {
       style: {
         color: "#C084FC",
         fontSize: 10,
-        letterSpacing: 3,
+        letterSpacing: 0.8,
         marginBottom: 10
       }
     }, step.label, " · ", uStep + 1, "/", UNLOCK_STEPS.length), /*#__PURE__*/React.createElement("div", {
@@ -1284,8 +1284,8 @@ function App() {
         padding: "10px 20px",
         fontFamily: "'DM Sans',sans-serif",
         fontSize: 12,
-        fontWeight: 500,
-        letterSpacing: 1,
+        fontWeight: 600,
+        letterSpacing: 0.8,
         cursor: "pointer",
         transition: "all 0.2s"
       }
@@ -1301,7 +1301,7 @@ function App() {
   const SL = {
     fontSize: 10,
     color: "rgba(100,60,140,0.25)",
-    letterSpacing: 3,
+    letterSpacing: 0.8,
     marginBottom: 14
   };
   const CARD = {
@@ -1421,7 +1421,7 @@ function App() {
     style: {
       fontSize: 10,
       color: "#C084FC",
-      letterSpacing: 3,
+      letterSpacing: 0.8,
       marginBottom: 12
     }
   }, "You're stuck. That's ok."), /*#__PURE__*/React.createElement("div", {
@@ -1470,7 +1470,7 @@ function App() {
       padding: "10px 0",
       fontFamily: "'DM Sans',sans-serif",
       fontSize: 12,
-      fontWeight: 700,
+      fontWeight: 600,
       cursor: "pointer"
     }
   }, "Ok, going")))), /*#__PURE__*/React.createElement(TopBar, {
@@ -1492,7 +1492,7 @@ function App() {
     style: {
       color: "#C084FC",
       fontSize: 10,
-      letterSpacing: 3,
+      letterSpacing: 0.8,
       marginBottom: 4
     }
   }, todayDisplay.toUpperCase()), /*#__PURE__*/React.createElement("div", {
@@ -1520,7 +1520,7 @@ function App() {
     style: {
       fontSize: 9,
       color: "#C084FC",
-      letterSpacing: 2,
+      letterSpacing: 0.8,
       marginBottom: 5
     }
   }, "Today's intention"), /*#__PURE__*/React.createElement("div", {
@@ -1657,7 +1657,7 @@ function App() {
     style: {
       fontSize: 9,
       color: "rgba(100,60,140,0.4)",
-      letterSpacing: 2
+      letterSpacing: 0.8
     }
   }, "👁️ Miebo drops · 4X daily"), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -1719,7 +1719,7 @@ function App() {
       padding: "11px 0",
       fontFamily: "'DM Sans',sans-serif",
       fontSize: 12,
-      fontWeight: 700,
+      fontWeight: 600,
       cursor: miebo.length >= 4 ? "default" : "pointer"
     }
   }, miebo.length >= 4 ? "DONE FOR TODAY" : `👁️ LOG DOSE ${miebo.length + 1} OF 4`), miebo.length > 0 && /*#__PURE__*/React.createElement("div", {
@@ -1788,7 +1788,7 @@ function App() {
       padding: "10px 18px",
       fontFamily: "'DM Sans',sans-serif",
       fontSize: 12,
-      fontWeight: 700,
+      fontWeight: 600,
       cursor: "pointer"
     }
   }, "Log")), weightLog.length > 1 && /*#__PURE__*/React.createElement("div", {
@@ -1858,7 +1858,7 @@ function App() {
     style: {
       color: "#C084FC",
       fontSize: 10,
-      letterSpacing: 3,
+      letterSpacing: 0.8,
       marginBottom: 4
     }
   }, "Your journey"), /*#__PURE__*/React.createElement("div", {
@@ -2168,7 +2168,7 @@ function App() {
     style: {
       color: "#2DD4BF",
       fontSize: 10,
-      letterSpacing: 3,
+      letterSpacing: 0.8,
       marginBottom: 4
     }
   }, "Hydration"), /*#__PURE__*/React.createElement("div", {
@@ -2207,7 +2207,7 @@ function App() {
     style: {
       fontSize: 9,
       color: "#2DD4BF",
-      letterSpacing: 2,
+      letterSpacing: 0.8,
       marginBottom: 4
     }
   }, "Gentle reminder"), /*#__PURE__*/React.createElement("div", {
@@ -2316,7 +2316,7 @@ function App() {
       color: dryMouth === n ? "#FDFBFF" : "rgba(80,50,120,0.5)",
       fontFamily: "'DM Sans',sans-serif",
       fontSize: 13,
-      fontWeight: 700,
+      fontWeight: 600,
       transition: "all 0.2s"
     }
   }, n))), dryMouth >= 7 && /*#__PURE__*/React.createElement("div", {
@@ -2502,7 +2502,7 @@ function App() {
     style: {
       color: "#A78BFA",
       fontSize: 10,
-      letterSpacing: 3,
+      letterSpacing: 0.8,
       marginBottom: 4
     }
   }, "Wind down · 10:00 PM"), /*#__PURE__*/React.createElement("div", {
@@ -2665,7 +2665,7 @@ function App() {
       padding: "9px 14px",
       fontSize: 16,
       cursor: "pointer",
-      fontWeight: 700,
+      fontWeight: 600,
       lineHeight: 1
     }
   }, "+"))), availEvening.some(h => h.id === "gratitude") && /*#__PURE__*/React.createElement("div", {
@@ -2788,7 +2788,7 @@ function App() {
       padding: "10px 16px",
       fontSize: 18,
       cursor: "pointer",
-      fontWeight: 700,
+      fontWeight: 600,
       lineHeight: 1
     }
   }, "+")), todos.map(todo => /*#__PURE__*/React.createElement("div", {
@@ -2954,7 +2954,7 @@ function App() {
     style: {
       color: "#34D399",
       fontSize: 10,
-      letterSpacing: 3,
+      letterSpacing: 0.8,
       marginBottom: 4
     }
   }, "Shopping list"), /*#__PURE__*/React.createElement("div", {
@@ -3007,7 +3007,7 @@ function App() {
       padding: "11px 16px",
       fontSize: 20,
       cursor: "pointer",
-      fontWeight: 700,
+      fontWeight: 600,
       lineHeight: 1
     }
   }, "+")), /*#__PURE__*/React.createElement("div", {
@@ -3051,7 +3051,7 @@ function App() {
       color: shopFilter === f ? "#34D399" : "rgba(100,60,140,0.3)",
       transition: "all 0.15s"
     }
-  }, f === "all" ? "ALL" : f === "todo" ? "TO GET" : "DONE"))), SHOP_CATS.map(cat => {
+  }, f === "all" ? "All" : f === "todo" ? "TO GET" : "DONE"))), SHOP_CATS.map(cat => {
     const items = shopItems.filter(x => x.cat === cat.id && (shopFilter === "all" || shopFilter === "todo" && !x.done || shopFilter === "done" && x.done));
     if (!items.length) return null;
     return /*#__PURE__*/React.createElement("div", {
@@ -3063,7 +3063,7 @@ function App() {
       style: {
         fontSize: 11,
         color: "rgba(100,60,140,0.3)",
-        letterSpacing: 2,
+        letterSpacing: 0.8,
         marginBottom: 10
       }
     }, cat.label), items.map(item => /*#__PURE__*/React.createElement("div", {
@@ -3141,7 +3141,7 @@ function App() {
       textAlign: "center",
       fontSize: 10,
       color: "rgba(120,80,160,0.08)",
-      letterSpacing: 3,
+      letterSpacing: 0.8,
       marginTop: 32
     }
   }, "You showed up today.")), /*#__PURE__*/React.createElement("button", {
